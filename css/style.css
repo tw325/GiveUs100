@@ -21,13 +21,37 @@ p {
 	text-align: center;
 }
 
-ul{
+}
+
+ul#menu {
+    margin: 0;
+    padding: 0;
+}
+
+ul#menu li a {
+	list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: block;
+    color: #000;
+    padding: 8px 16px;
+    text-decoration: none;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+ul#menu li a:hover {
+    background-color: #555;
+    color: white;
+}
+
+/*ul{
   list-style-type: none;
   margin: 0;
 	padding: 0;
   overflow: hidden;
   background-color: black;
-}
+}ddfljk
 
 li{
 	float: left;
@@ -41,7 +65,7 @@ li a {
     padding: 10px 20px;
     text-decoration: none;
     font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-}
+}*/
 
 .user{
 	float: right;
@@ -54,9 +78,7 @@ li a {
 	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 }
 
-li a:hover {
-    background-color: #990000;
-}
+
 
 .active {
     background-color: #222222;
