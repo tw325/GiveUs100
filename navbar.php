@@ -19,7 +19,7 @@
             $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
             
             #get the user type
-            $userType = $mysqli->query("SELECT userType FROM Users WHERE name=$username")->fetch_assoc()['userType'];
+            $userType = $mysqli->query("SELECT userType FROM Users WHERE username=$username")->fetch_assoc()['userType'];
             
 		}
  		else {

@@ -1,4 +1,4 @@
-<?php session_start();?, $page='Make a Request'>
+<?php session_start(); $page='Make a Request'?>
 
 <!DOCTYPE HTML>
 <html>
@@ -8,7 +8,8 @@
     </head>
 
 <body>
-     <?php 
+    
+    <?php 
         
     include 'navbar.php';
     
@@ -105,7 +106,6 @@
         </table><br>
         <input type="submit" name="requestSubmit" value="Submit" />
     </form>
-
 
 </body>
 

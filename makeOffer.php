@@ -1,4 +1,4 @@
-<?php session_start();? $page='Make an Offer'>
+<?php session_start(); $page='Make an Offer'?>
 
 <!DOCTYPE HTML>
 <html>
