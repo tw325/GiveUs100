@@ -1,27 +1,23 @@
 <h1>seniorcitizenconnect</h1>
-<div id="topbar">
-	<ul id="header">
-		<?php echo '<li><a href="'.$_SERVER['REQUEST_URI'].'">'.$page.'<a></li>'; 
-		echo '<li><input type="text" name="search" placeholder="Search..."></li>';
+<div id="navbar">
+    <span><img id="logo"src=""></span>
+    <span><?php echo ucwords(basename($_SERVER['PHP_SELF'],'.php')); ?></span>
+    <span><input type="text" name="search" placeholder="Search..."></span>
+    <?php
 		if ( isset( $_SESSION[ 'logged_user' ] ) ) {
 			$username = $_SESSION[ 'logged_user' ];
-			echo '<li><a href="login.php">Log out</a></li>';
-		}
-		else {
-			echo '<li><a href="login.php">Log in</a></li>';
-		}
+			print ("<span class='user'><a href='profile.php'>Hello, $username</a></span>");
+		} else {
+            print("<span class='user'><a href='login.php'>Login</a></span>");
+        }
 
 		?>
-	</ul>
 </div>
-<div id="sidebar">
+<div id="menubar">
 	<ul id="menu">
 		<li><a <?php echo ($page == 'home') ? 'class="active"' : '';?> href="home.php">Home</a></li>
-		<li><a <?php echo ($page == 'profile') ? 'class="active"' : '';?> href="profile.php">Profile</a></li>
 		<li><a <?php echo ($page == 'forum') ? 'class="active"' : '';?> href="forum.php">Forum</a></li>
 		<li><a <?php echo ($page == 'requests') ? 'class="active"' : '';?> href="requests.php">Requests</a></li>
 		<li><a <?php echo ($page == 'offers') ? 'class="active"' : '';?> href="offers.php">Offers</a></li>
 	</ul>
 </div>
-
-
