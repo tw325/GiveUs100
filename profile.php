@@ -9,6 +9,7 @@
 <body>
   <?php include 'navbar.php';?>
   <div id="profile">
+	<div class="name"> Name McNamey </div><br>
   	<img src= img/tempProfile.jpg onerror = "this.src=\'http://i.imgur.com/hPYOVf9.jpg\';" alt="pic"/>
   </div>
 </body>

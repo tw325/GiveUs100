@@ -42,7 +42,7 @@ ul#header {
 }
 
 ul#header li {
-	float: left;
+	right: 0;
 	color: white;
 	padding-top: 10px;
 	padding-bottom: 10px;
@@ -63,6 +63,7 @@ ul#menu {
     padding: 0;
     padding-top: 25px;
     list-style: none;
+    float: left;
 }
 
 ul#menu li {
@@ -71,7 +72,6 @@ ul#menu li {
 
 ul#menu li a {
 
-	list-style-type: none;
     margin: 0;
     padding: 0;
     display: block;
@@ -169,7 +169,22 @@ body{
 	max-width: 200px;
 }
 
+#profile {
+	padding-top: 20px;
+	padding-right: 200px;
+	float: center;
+}
 
+#profile img {
+	height: 250px;
+	width: 300px;
+}
+
+#profile .name {
+	font-size: 30px;
+	font-weight: bold;
+	text-align: center;
+}
 
 input[type=submit] {
 	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
