@@ -14,13 +14,6 @@
 			print ("<span class='user'><a href='profile.php'>Hello, $username</a></span>");
 			echo '<li><a href="login.php">Log out</a></li>';
             
-            #connect to the database
-            require_once 'config.php'; 
-            $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
-            
-            #get the user type
-            $userType = $mysqli->query("SELECT userType FROM Users WHERE username=$username")->fetch_assoc()['userType'];
-            
 		}
  		else {
  			echo '<li><a href="login.php">Log in</a></li>';
@@ -39,6 +32,16 @@
         
         <?php
         
+        if ( isset( $_SESSION[ 'logged_user' ] ) ) {
+			$username = $_SESSION[ 'logged_user' ];
+            
+            #connect to the database
+            require_once 'config.php'; 
+            $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
+            
+            #get the user type
+            $userType = $mysqli->query("SELECT userType FROM Users WHERE username=$username")->fetch_assoc()['userType'];
+            
         if ($userType == 'senior') {
         
         ?>
@@ -50,6 +53,8 @@
  			<li><a <?php echo ($page == 'offers') ? 'class="active"' : '';?> href="makeOffer.php">Make an Offer</a></li>
  		
         <?php }
+        
+        }
         ?>
         
 	</ul>
