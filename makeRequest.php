@@ -1,4 +1,4 @@
-<?php session_start();?>
+<?php session_start();?, $page='Make a Request'>
 
 <!DOCTYPE HTML>
 <html>

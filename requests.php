@@ -47,6 +47,17 @@
                     <p>Location:xxxxxxx</p>
                 </div>
             </td>
+        </tr><br>
+        <tr>
+            <td>
+                <p>Respond:</p>
+            </td>
+            <td>
+                <form method="post" id="sampleRespond" action="requests.php"> 
+                    <input type="text" name="descrption" required />
+                    <input type="submit" name="respondSubmit" value="Submit" />
+                </form>
+            </td>
         </tr>
     </table>
     
@@ -95,6 +106,17 @@
                     <p>Time:xxxxxxx</p>
                     <p>Location:xxxxxxx</p>
                 </div>
+            </td><br>
+        </tr>
+        <tr>
+            <td>
+                <p>Respond:</p>
+            </td>
+            <td>
+                <form method="post" id="sampleRespond" action="requests.php"> 
+                    <input type="text" name="descrption" required />
+                    <input type="submit" name="respondSubmit" value="Submit" />
+                </form>
             </td>
         </tr>
     </table>

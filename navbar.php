@@ -10,8 +10,17 @@
 
 		if ( isset( $_SESSION[ 'logged_user' ] ) ) {
 			$username = $_SESSION[ 'logged_user' ];
+        
 			print ("<span class='user'><a href='profile.php'>Hello, $username</a></span>");
 			echo '<li><a href="login.php">Log out</a></li>';
+            
+            #connect to the database
+            require_once 'config.php'; 
+            $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
+            
+            #get the user type
+            $userType = $mysqli->query("SELECT userType FROM Users WHERE name=$username")->fetch_assoc()['userType'];
+            
 		}
  		else {
  			echo '<li><a href="login.php">Log in</a></li>';
@@ -27,6 +36,22 @@
 		<li><a <?php echo ($page == 'forum') ? 'class="active"' : '';?> href="forum.php">Forum</a></li>
 		<li><a <?php echo ($page == 'requests') ? 'class="active"' : '';?> href="requests.php">Requests</a></li>
 		<li><a <?php echo ($page == 'offers') ? 'class="active"' : '';?> href="offers.php">Offers</a></li>
+        
+        <?php
+        
+        if ($userType == 'senior') {
+        
+        ?>
+            <li><a <?php echo ($page == 'requests') ? 'class="active"' : '';?> href="makeRequest.php">Make a Request</a></li>
+		
+        <?php } 
+        
+        if ($userType == 'volunteer' or ($userType == 'career')){ ?>
+ 			<li><a <?php echo ($page == 'offers') ? 'class="active"' : '';?> href="makeOffer.php">Make an Offer</a></li>
+ 		
+        <?php }
+        ?>
+        
 	</ul>
 </div>
 
