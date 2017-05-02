@@ -15,9 +15,11 @@
   	<div class="groups"><br><b>Groups:</b> Senior Citizen, Volunteer</div>
   	<div class="pastPosts">
   		<br><br>
-  		<a href="profile.php">Previous Posts</a></li>
-  		<a href="profile.php">Previous Requests</a></li>
-  		<a href="profile.php">Previous Offers</a></li>
+        <ul>
+  		<li><a href="profile.php">Previous Posts</a></li>
+  		<li><a href="profile.php">Previous Requests</a></li>
+  		<li><a href="profile.php">Previous Offers</a></li>
+        </ul>
   	</div>
 
   </div>
