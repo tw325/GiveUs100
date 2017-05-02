@@ -2,8 +2,11 @@
 
 <div id="topbar">
  	<ul id="header">
- 		<?php echo '<li><a href="'.$_SERVER['REQUEST_URI'].'">'.$page.'<a></li>';
+ 		<?php
+    echo '<li><a href="index.php"><img alt="Home" src="img/home.png" width="20" height="20"></a></li>';
+    echo '<li><a href="'.$_SERVER['REQUEST_URI'].'">'.$page.'</a></li>';
  		echo '<li><input type="text" name="search" placeholder="Search..."></li>';
+    echo '<li><input type="submit" value="Search"></li>';
 
 		if ( isset( $_SESSION[ 'logged_user' ] ) ) {
 			$username = $_SESSION[ 'logged_user' ];
@@ -19,10 +22,19 @@
 </div>
 <div id="menubar">
 	<ul id="menu">
-		<li><a <?php echo ($page == 'home') ? 'class="active"' : '';?> href="home.php">Home</a></li>
+		<li><a <?php echo ($page == 'home') ? 'class="active"' : '';?> href="index.php">Home</a></li>
 		<li><a <?php echo ($page == 'profile') ? 'class="active"' : '';?> href="profile.php">Profile</a></li>
 		<li><a <?php echo ($page == 'forum') ? 'class="active"' : '';?> href="forum.php">Forum</a></li>
 		<li><a <?php echo ($page == 'requests') ? 'class="active"' : '';?> href="requests.php">Requests</a></li>
 		<li><a <?php echo ($page == 'offers') ? 'class="active"' : '';?> href="offers.php">Offers</a></li>
+	</ul>
+</div>
+
+<div id="footerbar">
+	<ul id="footer">
+		<li><a <?php echo ($page == 'contact') ? 'class="active"' : '';?> href="contact.php">Contact Us</a></li>
+		<li><a <?php echo ($page == 'help') ? 'class="active"' : '';?> href="help.php">Help</a></li>
+		<li><a <?php echo ($page == 'about') ? 'class="active"' : '';?> href="about.php">About Us</a></li>
+    <li style="float:right">&copy; 2017 Senior Citizen Connect</li>
 	</ul>
 </div>
