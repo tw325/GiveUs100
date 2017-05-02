@@ -10,7 +10,16 @@
   <?php include 'navbar.php';?>
   <div id="profile">
 	<div class="name"> Name McNamey </div><br>
-  	<img src= img/tempProfile.jpg onerror = "this.src=\'http://i.imgur.com/hPYOVf9.jpg\';" alt="pic"/>
+  	<img src= img/tempProfile.jpg onerror = "this.src=\'http://i.imgur.com/hPYOVf9.jpg\';" alt="pic"/><br>
+  	<div class="description">description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description </div>
+  	<div class="groups"><br><b>Groups:</b> Senior Citizen, Volunteer</div>
+  	<div class="pastPosts">
+  		<br><br>
+  		<a href="profile.php">Previous Posts</a></li>
+  		<a href="profile.php">Previous Requests</a></li>
+  		<a href="profile.php">Previous Offers</a></li>
+  	</div>
+
   </div>
 </body>
 

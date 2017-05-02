@@ -171,8 +171,10 @@ body{
 
 #profile {
 	padding-top: 20px;
-	padding-right: 200px;
+	padding-right: 500px;
+	margin-left: 500px;
 	float: center;
+	text-align: center;
 }
 
 #profile img {
@@ -180,10 +182,21 @@ body{
 	width: 300px;
 }
 
+
+
 #profile .name {
 	font-size: 30px;
 	font-weight: bold;
-	text-align: center;
+}
+
+#profile .pastPosts a {
+	background-color: #f1f1f1;
+    color: black;
+    font-size: 20px;
+    padding: 14px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
 }
 
 input[type=submit] {
