@@ -44,8 +44,8 @@ ul#header {
 ul#header li {
 	float: left;
 	color: white;
-	padding-top: 30px;
-	padding-bottom: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	padding-left: 30px;
 	padding-right: 30px;
 	flex: 0 1 auto;
