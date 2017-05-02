@@ -110,7 +110,6 @@ ul#menu {
 	bottom: 0;
 	margin: 0;
 	padding: 0;
-	padding-top: 25px;
 	list-style: none;
 	float: left;
 }
@@ -185,6 +184,10 @@ table{
 	 width:100%;
 }
 
+.twincols{
+	width: 200px;
+}
+
 td, th{
 	margin-top: 20px;
 	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
@@ -236,8 +239,8 @@ body{
 
 #profile {
 	padding-top: 20px;
-	padding-right: 500px;
-	margin-left: 500px;
+	padding-right: 10px;
+	margin-left: 10px;
 	float: center;
 	text-align: center;
 }

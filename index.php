@@ -12,6 +12,7 @@
     this should float right.
   </div>
   kajdsf;klasj
+</td></tr></table>
     <?php include 'footer.php';?>
 </body>
 
