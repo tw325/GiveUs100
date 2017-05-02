@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <title>Service Providers</title>
+        <title>Volunteer Offers</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
 
@@ -20,12 +20,12 @@
         $logged_user = $_SESSION[ 'logged_user' ];  
         
     #retreive data from the database
-        $careers = $mysqli->query("SELECT * FROM careers");
+        $offers = $mysqli->query("SELECT * FROM offers");
         
         
     #iterate and format the way data would display on the website
-        if ($careers){
-            while($careers = $career ->fetch_assoc() ){
+        if ($requests){
+            while($offers = $offer ->fetch_assoc() ){
                 
             }
         }
@@ -33,37 +33,37 @@
     
     ?>
     
-    <table class="serviceProvider">
+    <table class="offer">
         <tr>
             <td>
-                <a href=""><img class="careerPhoto" src="images/user1.jpg"></a>
+                <a href=""><img class="offerPhoto" src="images/user1.jpg"></a>
             </td>
             <td>
                 <div>
-                    <p>Kirk</p>
-                    <p>Services provided:xxxxxxxxxxxxxxxxxxxxxxxx </p>
+                    <p>Volunteer: Kirk</p>
+                    <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
                     <a heref="">Contact</a>
                 </div>
             </td>
         </tr>
     </table>
     
-    <table class="serviceProvider">
+    <table class="offer">
         <tr>
             <td>
-                <a href=""><img class="careerPhoto" src="images/user2.jpg"></a>
+                <a href=""><img class="offerPhoto" src="images/user2.jpg"></a>
             </td>
             <td>
                 <div>
-                    <p>Spock</p>
-                    <p>Services provided:xxxxxxxxxxxxxxxxxxxxxxxx</p>
+                    <p>Volunteer: Spock</p>
+                    <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
                     <a heref="">Contact</a>
                 </div>
             </td>
         </tr>
     </table>
-        
+    
 
 </body>
 
-</html>>
+</html>

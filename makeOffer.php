@@ -8,6 +8,7 @@
     </head>
 
 <body>
+    
      <?php 
         
     include 'navbar.php';
@@ -16,16 +17,17 @@
     require_once 'config.php'; 
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
     
-    #check if the user is logged in
+    
+    #check if the user is logged in 
     if ( isset( $_SESSION[ 'logged_user' ] ) ) {   
         $logged_user = $_SESSION[ 'logged_user' ];  
     ?>   
+        <?php #if the user has logged in, displays the form to make an offer.?>
     
-    <?php #displays the form for making a request if the user is logged in?>
-    <form method="post" id="sampleMakeRequest" action="makeRequest.php"> 
+        <form method="post" id="sampleMakeOffer" action="makeOffer.php"> 
         <table>
             <tr>
-                <td><label>Name of Person Who Request:</label></td>
+                <td><label>Name of Volunteer:</label></td>
                 <td><input type="text" name="name" required /></td>
             </tr>
             <tr>
@@ -45,18 +47,19 @@
                 <td><input type="text" name="descrption" required /></td>
             </tr>
         </table><br>
-        <input type="submit" name="requestSubmit" value="Submit" />
+        <input type="submit" name="offerSubmit" value="Submit" />
     </form>
     
     <?php 
     
     } else {
-        echo "Please <a href='login.php'>Login</a> to make a request";
+        print "Please <a href='login.php'>Login</a> to make an offer";
+        
         
     }
     
     
-    #check if the information is submited via the form
+     #check if the information is submited via the form
     
     
     
@@ -75,19 +78,18 @@
     #close the database and inform the user if the submission succeeds
     
     
-    
     ?>
     
-    <h2>Make a request</h2>
+    <h2>Make an offer</h2>
     
-    <form method="post" id="sampleMakeRequest" action="makeRequest.php"> 
+    <form method="post" id="sampleMakeOffer" action="makeOffer.php"> 
         <table>
             <tr>
-                <td><label>Name of Person Who Request:</label></td>
+                <td><label>Name of Volunteer:</label></td>
                 <td><input type="text" name="name" required /></td>
             </tr>
             <tr>
-                <td><label>Request Type: </label></td>
+                <td><label>Offer Type: </label></td>
                 <td><input type="text" name="type" required /></td>
             </tr>
             <tr>
@@ -103,8 +105,9 @@
                 <td><input type="text" name="descrption" required /></td>
             </tr>
         </table><br>
-        <input type="submit" name="requestSubmit" value="Submit" />
+        <input type="submit" name="offerSubmit" value="Submit" />
     </form>
+
 
 
 </body>
