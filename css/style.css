@@ -74,6 +74,7 @@ ul#header li a:hover {
 	color: black;
 }
 
+
 ul#footer {
 	list-style-type: none;
 	margin: 0;
@@ -81,7 +82,7 @@ ul#footer {
 	overflow: hidden;
 	background-color: #333333;
 	display: block;
-	position: absolute;
+	position: fixed;
   right: 0;
   bottom: 0;
   left: 0;
@@ -104,6 +105,7 @@ ul#footer li a {
 }
 
 ul#menu {
+	height: 100%;
 	z-index:1;
 	bottom: 0;
 	margin: 0;
@@ -111,7 +113,6 @@ ul#menu {
 	padding-top: 25px;
 	list-style: none;
 	float: left;
-
 }
 
 ul#menu li {
@@ -174,12 +175,25 @@ font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida San
 	background-color: #222222;
 }
 
-th,td{
+.offerPhoto, .requestPhoto{
+	width: 100%;
+	height: 100%;
+}
+
+table{
+	/*max-width: 2px;*/
+	 width:100%;
+}
+
+td, th{
+	margin-top: 20px;
 	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 	font-size: 14px;
 	font-style: normal;
 	font-variant: normal;
+	vertical-align: top;
 	padding: 10px 12px;
+	border: solid 2px black;
 }
 
 body{
@@ -190,18 +204,22 @@ body{
 }
 
 .content {
+	position:relative;
+	/*padding:0 0 0 55px;*/
 	border: 1px solid #ededed;
 	margin: 10px auto;
-	width: 80%;
+	width: 90%;
 	background-color: #ffffff;
-	padding: 20px;
+	padding: 10px;
 	border-radius: 3px;
+	margin-bottom: 100px;
 }
 
 .container{
 	position:static;
 	padding-right:10px;
 	padding-left:10px;
+	padding-bottom: 50px;
 }
 
 .banner{

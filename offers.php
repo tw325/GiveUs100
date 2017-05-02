@@ -7,31 +7,31 @@
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <?php 
-        
+    <?php
+
     include 'navbar.php';
-    
+
     #connect to the database
-    require_once 'config.php'; 
-    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
-    
+    require_once 'config.php';
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
     #check if the user is login
-    if ( isset( $_SESSION[ 'logged_user' ] ) ) {   
-        $logged_user = $_SESSION[ 'logged_user' ];  
-        
+    if ( isset( $_SESSION[ 'logged_user' ] ) ) {
+        $logged_user = $_SESSION[ 'logged_user' ];
+
         #code for retreiving informatin from the database and format the way data displays on the website
         $donatinoRequests = $mysqli->query("SELECT * FROM donation");
-        
+
         if ($requests){
-            
+
             while($donatinoRequests = $donatinoRequest ->fetch_assoc() ){
-                
+
             }
         }
     }
-    
+
     ?>
-    
+
     <h2>Offer</h2>
     <table class="offer">
         <tr>
@@ -53,14 +53,14 @@
                 <p>Respond:</p>
             </td>
             <td>
-                <form method="post" id="sampleRespond" action="requests.php"> 
+                <form method="post" id="sampleRespond" action="requests.php">
                     <input type="text" name="descrption" required />
                     <input type="submit" name="respondSubmit" value="Submit" />
                 </form>
             </td>
         </tr>
     </table>
-    
+
     <h2>Respondent Requests</h2>
     <table class="rquest">
         <tr>
@@ -76,7 +76,7 @@
             </td>
         </tr>
     </table>
-    
+
     <table class="request">
         <tr>
             <td>
@@ -91,8 +91,8 @@
             </td>
         </tr>
     </table>
-    
-  
+
+    <?php include 'footer.php';?>
 </body>
 
 </html>

@@ -9,6 +9,7 @@
 <body>
   <?php include 'navbar.php';?>
   THIS IS THE FORUM
+    <?php include 'footer.php';?>
 </body>
 
 </html>

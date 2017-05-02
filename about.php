@@ -14,6 +14,7 @@
     <a href="downloads/FinalProjectPhase2.docx">Part 2</a><br>
     <a href="downloads/WebsiteLayout.pptx">Website Layout</a>
   </div>
+  <?php include 'footer.php';?>
 </body>
 
 </html>

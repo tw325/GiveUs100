@@ -12,6 +12,7 @@
     <h1> CONTACT US: </h1>
     <a href="https://github.com/twangMRwang123/GiveUs100">Our Github</a>
   </div>
+  <?php include 'footer.php';?>
 </body>
 
 </html>

@@ -8,7 +8,11 @@
 </head>
 <body>
   <?php include 'navbar.php';?>
-  <?php include 'footer.php';?>
+  <div class="content">
+    this should float right.
+  </div>
+  kajdsf;klasj
+    <?php include 'footer.php';?>
 </body>
 
 </html>

@@ -7,32 +7,32 @@
     </head>
 
 <body>
-    <?php 
-        
+    <?php
+
     include 'navbar.php';
-    
+
     #connect to the database
-    require_once 'config.php'; 
-    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
-    
-    #check if the user is logged in 
-    if ( isset( $_SESSION[ 'logged_user' ] ) ) {   
-        $logged_user = $_SESSION[ 'logged_user' ];  
-        
+    require_once 'config.php';
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+    #check if the user is logged in
+    if ( isset( $_SESSION[ 'logged_user' ] ) ) {
+        $logged_user = $_SESSION[ 'logged_user' ];
+
     #retreive data from the database
         $offers = $mysqli->query("SELECT * FROM offers");
-        
-        
+
+
     #iterate and format the way data would display on the website
         if ($requests){
             while($offers = $offer ->fetch_assoc() ){
-                
+
             }
         }
     }
-    
+
     ?>
-    
+
     <table class="offer">
         <tr>
             <td>
@@ -47,7 +47,7 @@
             </td>
         </tr>
     </table>
-    
+
     <table class="offer">
         <tr>
             <td>
@@ -62,8 +62,8 @@
             </td>
         </tr>
     </table>
-    
 
+  <?php include 'footer.php';?>
 </body>
 
 </html>

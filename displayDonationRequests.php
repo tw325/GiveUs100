@@ -1,35 +1,35 @@
 <?php session_start();?>
 
-<!DOCTYPE HTML> 
+<!DOCTYPE HTML>
 <html>
 <head>
   <title>Donation Requests</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-    <?php 
-        
+    <?php
+
     include 'navbar.php';
-    
+
     #connect to the database
-    require_once 'config.php'; 
-    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME); 
-    
-    if ( isset( $_SESSION[ 'logged_user' ] ) ) {   
-        $logged_user = $_SESSION[ 'logged_user' ];  
-        
+    require_once 'config.php';
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+    if ( isset( $_SESSION[ 'logged_user' ] ) ) {
+        $logged_user = $_SESSION[ 'logged_user' ];
+
         $donatinoRequests = $mysqli->query("SELECT * FROM donation");
-        
+
         if ($requests){
-            
+
             while($donatinoRequests = $donatinoRequest ->fetch_assoc() ){
-                
+
             }
         }
     }
-    
+
     ?>
-    
+
     <table class="donationRequest">
         <tr>
             <td>
@@ -45,7 +45,7 @@
             </td>
         </tr>
     </table>
-    
+
     <table class="donationRequest">
         <tr>
             <td>
@@ -61,6 +61,6 @@
             </td>
         </tr>
     </table>
-
+  <?php include 'footer.php';?>
 </body>
 </html>

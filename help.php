@@ -11,6 +11,7 @@
   <div class="content">
     <h1> OUR FAQ: </h1>
   </div>
+    <?php include 'footer.php';?>
 </body>
 
 </html>
