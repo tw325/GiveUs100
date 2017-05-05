@@ -174,11 +174,6 @@ font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida San
 	background-color: #222222;
 }
 
-.offerPhoto, .requestPhoto{
-	width: 100%;
-	height: 100%;
-}
-
 table{
 	/*max-width: 2px;*/
 	 width:100%;
@@ -250,6 +245,21 @@ body{
 	width: 300px;
 }
 
+.offerPhoto {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    height:350px;
+    width: 350px;
+}
+
+.requestPhoto {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    height:350px;
+    width: 350px;
+}
 
 
 #profile .name {
@@ -302,3 +312,4 @@ input[type=text]:focus,input[type=password]:focus,input[type=url]:focus {
 	transition: 0.3s;
 	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;*/
 }
+

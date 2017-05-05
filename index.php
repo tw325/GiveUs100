@@ -9,11 +9,14 @@
 <body>
   <?php include 'navbar.php';?>
   <div class="content">
-    this should float right.
+      <h1>Welcome!</h1>
+      <h2>Start to explore the website with the sidebar.</h2>
   </div>
-  kajdsf;klasj
-</td></tr></table>
-    <?php include 'footer.php';?>
+    
+<?php
+echo'</td></tr></table>';
+     include 'footer.php';
+?>
 </body>
 
 </html>
