@@ -20,11 +20,11 @@
         $logged_user = $_SESSION[ 'logged_user' ];
 
         #code for retreiving informatin from the database and format the way data displays on the website
-        $donatinoRequests = $mysqli->query("SELECT * FROM donation");
+        $offers = $mysqli->query("SELECT * FROM offers");
 
-        if ($requests){
+        if ($offers && $offerss->num_rows == 1){
 
-            while($donatinoRequests = $donatinoRequest ->fetch_assoc() ){
+            while($offers = $offer ->fetch_assoc() ){
 
             }
         }

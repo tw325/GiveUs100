@@ -30,18 +30,18 @@
       } else{
         require_once 'config.php';
         $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME );
-        $query = "SELECT * FROM Users WHERE username = '$username'";
+        $query = "SELECT * FROM users WHERE username = '$username'";
         $result = $mysqli->query($query);
         if ($result && $result->num_rows == 1) {
           $row = $result->fetch_assoc();
-          $db_hash_password = $row[ 'hashpassword' ];
+          $db_hash_password = $row[ 'password' ];
           if( password_verify($password, $db_hash_password) ) {
             $_SESSION['logged_user'] = $username;
             header( "refresh:0;url=index.php" );
           }
           else {
             echo '<h1>You did not login successfully.</h1>';
-            echo '<p>Please <a href="login.php">login</a></p>';
+            echo '<h2>Please <a href="login.php">login</a></h2>';
           }
         }
       }
