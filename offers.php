@@ -36,7 +36,7 @@
     <table class="offer">
         <tr>
             <td>
-                <a href=""><img class="offerPhoto" src="images/user1.jpg"></a>
+                <a href=""><img class="offerPhoto" alt="user" src="images/user1.jpg"></a>
                 <p>Name: Kirk</p>
             </td>
             <td>
@@ -47,7 +47,7 @@
                     <p>Location:xxxxxxx</p>
                 </div>
             </td>
-        </tr><br>
+        </tr>
         <tr>
             <td>
                 <p>Respond:</p>
@@ -65,7 +65,7 @@
     <table class="rquest">
         <tr>
             <td>
-                <a href=""><img class="requestPhoto" src="images/user2.jpg"></a>
+                <a href=""><img class="requestPhoto" alt="user" src="images/user2.jpg"></a>
                 <p>Name: Spock</p>
             </td>
             <td>
@@ -80,7 +80,7 @@
     <table class="request">
         <tr>
             <td>
-                <a href=""><img class="offerPhoto" src="images/user2.jpg"></a>
+                <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
                 <p>Name: Spock</p>
             </td>
             <td>
@@ -92,7 +92,14 @@
         </tr>
     </table>
 
-    <?php include 'footer.php';?>
+<?php
+echo'</td></tr></table>
+</div>';
+    
+  include 'footer.php';
+    
+?>
+   
 </body>
 
 </html>

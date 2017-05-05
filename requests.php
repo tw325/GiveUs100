@@ -21,7 +21,7 @@
     #code for retreiving informatin from the database and format the way data displays on the website
     $requests = $mysqli->query("SELECT * FROM requests");
 
-    if ($requests && requests->num_rows == 1){
+    if ($requests && $requests->num_rows == 1){
 
       while($requests = $request ->fetch_assoc() ){
 
@@ -35,7 +35,7 @@
     <table class="request">
       <tr>
         <td>
-          <a href=""><img class="requestPhoto" src="images/user1.jpg"></a>
+          <a href=""><img class="requestPhoto" alt='user' src="images/user1.jpg"></a>
           <p>Name: Kirk</p>
         </td>
         <td>
@@ -46,13 +46,13 @@
             <p>Location:xxxxxxx</p>
           </div>
         </td>
-      </tr><br>
+      </tr>
       <tr>
         <td>
           <p>Respond:</p>
         </td>
         <td>
-          <form method="post" id="sampleRespond" action="requests.php">
+          <form method="post" class="sampleRespond" action="requests.php">
             <input type="text" name="descrption" required />
             <input type="submit" name="respondSubmit" value="Submit" />
           </form>
@@ -64,7 +64,7 @@
     <table class="offer">
       <tr>
         <td>
-          <a href=""><img class="offerPhoto" src="images/user2.jpg"></a>
+          <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
           <p>Name: Spock</p>
         </td>
         <td>
@@ -79,7 +79,7 @@
     <table class="offer">
       <tr>
         <td>
-          <a href=""><img class="offerPhoto" src="images/user2.jpg"></a>
+          <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
           <p>Name: Spock</p>
         </td>
         <td>
@@ -95,7 +95,7 @@
     <table class="request">
       <tr>
         <td>
-          <a href=""><img class="requestPhoto" src="images/user2.jpg"></a>
+          <a href=""><img class="requestPhoto" alt="user" src="images/user2.jpg"></a>
           <p>Name: Spock</p>
         </td>
         <td>
@@ -105,14 +105,14 @@
             <p>Time:xxxxxxx</p>
             <p>Location:xxxxxxx</p>
           </div>
-        </td><br>
+        </td>
       </tr>
       <tr>
         <td>
           <p>Respond:</p>
         </td>
         <td>
-          <form method="post" id="sampleRespond" action="requests.php">
+          <form method="post" class="sampleRespond" action="requests.php">
             <input type="text" name="descrption" required />
             <input type="submit" name="respondSubmit" value="Submit" />
           </form>
@@ -124,20 +124,25 @@
     <table class="offer">
       <tr>
         <td>
-          <a href=""><img class="offerPhoto" src="images/user1.jpg"></a>
+          <a href=""><img class="offerPhoto" alt="user" src="images/user1.jpg"></a>
           <p>Name: Kirk</p>
         </td>
         <td>
           <div>
-            <p>Donation Request</p>
+            <p>Offer</p>
             <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
           </div>
         </td>
       </tr>
     </table>
-</td></tr></table>
-</div>
-  <?php include 'footer.php';?>
+
+<?php
+echo'</td></tr></table>
+</div>';
+    
+  include 'footer.php';
+    
+?>
 
 </body>
 

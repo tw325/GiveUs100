@@ -2,7 +2,7 @@
     // database host//
     define('DB_HOST', 'localhost' );
     //database name - info230_SP17_username//
-    define('DB_NAME', 'giveus100' );
+    define('DB_NAME', 'info230_SP17_fp_giveus100' );
     //Course Server username//
     define('DB_USER', 'fp_giveus100');
     //password//
