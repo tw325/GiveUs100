@@ -84,9 +84,7 @@ ul#footer {
 	overflow: hidden;
 	background-color: #333333;
 	position: fixed;
-	display: flex;
-	align-items: stretch;
-	justify-content: space-between;
+	display: block;
 	white-space: nowrap;
   right: 0;
   bottom: 0;
