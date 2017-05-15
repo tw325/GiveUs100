@@ -1,11 +1,11 @@
-
-<?php session_start(); $page = 'Volunteer Offers';?>
+<?php session_start(); $page = 'Donation Offers';?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>VOLUNTEER REQUESTS</title>
+  <title>DONATION OFFERS</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/main.js"></script>
 </head>
 <body>
     
@@ -20,29 +20,31 @@
     
     if (isset($_POST['respondSubmit'])){
         if ( isset( $_SESSION[ 'logged_user' ] ) ) {
+            
             $username = $_SESSION['logged_user'];
             
             $user = $mysqli->query("SELECT * FROM users WHERE username=$username");
             
-            if ($user && $user->num_rows >= 1){
+            if ($user && $user->num_rows == 1){
+                
                 $id = $user->fetch_assoc()['userID'];
         
-                if (isset($_POST['timeStamp']) && isset($_POST['requestID']) && isset($_POST['description']) && trim($_POST['description'])!='' && trim($_POST['requestID'])!='' && trim($_POST['timeStamp'])!=''){
+                if (isset($_POST['timeStamp']) && isset($_POST['offerID']) && isset($_POST['description']) && trim($_POST['description'])!='' && trim($_POST['offerID'])!='' && trim($_POST['timeStamp'])!=''){
                     $description=filter_var(trim($_POST['description']),FILTER_SANITIZE_STRING);
-                    $reqID = filter_var(trim($_POST['requestID']), FILTER_VALIDATE_INT);
+                    $offID = filter_var(trim($_POST['offerID']), FILTER_VALIDATE_INT);
                     $timeStamp = filter_var(trim($_POST['timeStamp']),FILTER_SANITIZE_STRING);
                     
-                    $req = $mysqli->query("SELECT * FROM requests INNER JOIN users ON request.userID=users.userID WHERE requestID=$reqID");
+                    $off = $mysqli->query("SELECT * FROM offer INNER JOIN users ON offer.userID=users.userID WHERE offer.offerID=$offID");
                     
-                    if ($req && $req->num_rows >= 1){
+                    if ($off && $off->num_rows >= 1){
                         
-                        $reqUser=$req['name'];
+                        $offUser=$off['name'];
                         
-                        $reqTitle=$req['requestTitle'];
+                        $offTitle=$off['offerTitle'];
                     
-                        $sql = "INSERT INTO respondentoffers (userID, requestID, resOfferDescription, resOfferTimeStamp) VALUES ('$id','$reqID','$description','$timeStamp')";
+                        $sql = "INSERT INTO respondentrequests (userID, offerID, resRequestDescription, resRequestTimeStamp) VALUES ('$id','$offID','$description','$timeStamp')";
                         if ($mysqli->query($sql) === TRUE) {
-                            echo "Your response to $reqTitle made by $reqUser is submitted successfully";
+                            echo "Your response to $offTitle made by $offUser is submitted successfully";
                         } else {
                             echo "Error: " . $sql . "<br>" . $mysqli->error;
                         }
@@ -55,48 +57,49 @@
     
     #code for retreiving informatin from the database and format the way data displays on the website
       
-    $type = 'volunteer';
+    $type = 'donation';
         
-    $requests = $mysqli->query("SELECT * FROM requests INNER JOIN users ON requests.userID=users.userID WHERE requestType=$type");
+    $offers = $mysqli->query("SELECT * FROM offer INNER JOIN users ON offer.userID=users.userID WHERE offer.offerType=$type");
       
 
-    if ($requests && $requests->num_rows == 1){
+    if ($offers && $offers->num_rows >= 1){
 
-      while($requests = $request ->fetch_assoc() ){
-          $requestID=$request['requestID'];
-          $requestName=$request['name'];
+      while($offers = $offer->fetch_assoc() ){
+          $offerID=offer['offerID'];
+          $offerName=$offer['name'];
           
-          $profileURL=$request['profileURL'];
-          $pictureURL=$request['pictureURL'];
+          $profileURL=$offer['profileURL'];
+          $pictureURL=$offer['pictureURL'];
           
-          if ($request['preferredContact']=='phone'){
-              $contact=$request['phone'];
-          } else if ($request['preferredContact']=='email'){
-              $contact=$request['email'];
+          if ($offer['preferredContact']=='phone'){
+              $contact=$offer['phone'];
+          } else if ($offer['preferredContact']=='email'){
+              $contact=$offer['email'];
           }
           
-          $requestTitle=$request['requestTitle'];
-          $requestDescription=$request['requestDescription'];
-          $requestClosed=$request['requestClosed'];
-          $requestTime=$request['requestTime'];
-          $requestLocation=$request['requestLocation'];
-          $requestTimeStamp=$request['requestTimeStamp'];
+          $offerTitle=$offer['offerTitle'];
+          $offerDescription=$offer['requestDescription'];
+          $offerClosed=$offer['offerClosed'];
+          $offerTime=$offer['offerTime'];
+          $offerLocation=$offer['offerLocation'];
+          $offerTimeStamp=$offer['offerTimeStamp'];
           
-          print("<table class='request'>");
+          print("<table class='offer'>");
           print("<tbody>");
           print("<tr>");
           print("<td>");
-          print("<a href='$profileURL'><img class='requestPhoto' alt='userPhoto' src='$pictureURL'></a>");
-          print("<p>Name: $requestName</p>");
+          print("<a href='$profileURL'><img class='offerPhoto' alt='userPhoto' src='$pictureURL'></a>");
+          print("<p>Name: $offerName</p>");
           print("</td>");
           print("<td>");
           print("<div>");
-          print("<h3>$requestTitle</h3>");
-          print("<p>$requestTime</p>");
-          print("<p>$requestLocation</p>");
-          print("<p>$requestDescription</p>");
+          print("<h3>$offerTitle</h3>");
+          print("<p>$offerTime</p>");
+          print("<p>$offerLocation</p>");
+          print("<p>$offerDescription</p>");
           print("<p>Contact: $contact</p>");
-          print("<p>$requestTimeStamp</p>");
+          print("<p>Status: $offerClosed</p>");
+          print("<p>$offerTimeStamp</p>");
           print("</div>");
           print("</td>");
           print("</tr>");
@@ -105,13 +108,13 @@
           if ( isset( $_SESSION[ 'logged_user' ] ) ) {
               print("<tr>");
               print("<td>");
-              print("<p>Respond to this request:</p>");
+              print("<p>Respond to this offer:</p>");
               print("</td>");
               print("<td>");
-              print("<form method='post' class='responddentOffers' action='requests.php'>");
+              print("<form method='post' class='respondentRequests' action='offers.php'>");
               print("Description: <input type='text' name='descrption' required>");
-              print("<input class='hidden' type='text' name='requestID' value='$requstID' required>");
-              print("<input class='hidden' type='text' name='timeStamp' required>");
+              print("<input class='hidden' type='text' name='offerID' value='$offerID' required>");
+              print("<input id='donationResRequestDate' class='hidden' type='text' name='timeStamp' required>");
               print("<input type='submit' name='respondSubmit' value='Submit'>");
               print("</form>");
               print("</td>");
@@ -122,7 +125,7 @@
               print("<p>Notice: </p>");
               print("</td>");
               print("<td>");
-              print("<p>Please <a href='login.php'>login</a> to respond to requests</p>");
+              print("<p>Please <a href='login.php'>login</a> to respond to offers</p>");
               print("</td>");
               print("</tr>");
           }
@@ -130,14 +133,14 @@
           print("</tbody>");
           print("</table>");
           
-          #display respondent offers to one request
-          $responses = $mysqli->query("SELECT * FROM respondentoffers INNER JOIN requests ON respondentoffers.requestID INNER JOIN requests.requestID INNER JOIN users ON respondentoffers.userID=users.userID WHERE requests.requestID=$requestID");
+          #display respondent requests to one offer
+          $responses = $mysqli->query("SELECT * FROM respondentrequests INNER JOIN offer ON respondentrequests.offerID=offer.offerID INNER JOIN users ON respondentrequests.userID=users.userID WHERE respondentrequests.offerID=$offerID");
           
           if ($responses && $responses->num_rows >= 1){
               while($responses = $response ->fetch_assoc() ){
-                  $offerName=$response['name'];
-                  $offerProfileURL=$response['profileURL'];
-                  $offerPictureURL=$response['pictureURL'];
+                  $requestName=$response['name'];
+                  $requestProfileURL=$response['profileURL'];
+                  $requestPictureURL=$response['pictureURL'];
           
                   if ($response['preferredContact']=='phone'){
                       $resContact=$response['phone'];
@@ -145,21 +148,21 @@
                       $resContact=$response['email'];
                   }
           
-                  $resOfferDescription=$response['resOfferDescription'];
-                  $resOfferTimeStamp=$response['resOfferTimeStamp'];
+                  $resRequestDescription=$response['resRequestDescription'];
+                  $resRequestTimeStamp=$response['resRequestTimeStamp'];
           
-                  print("<table class='resOffer'>");
+                  print("<table class='resRequest'>");
                   print("<tbody>");
                   print("<tr>");
                   print("<td>");
-                  print("<a href='$offerProfileURL'><img class='requestPhoto' alt='userPhoto' src='$offerPictureURL'></a>");
-                  print("<p>Name: $offerName</p>");
+                  print("<a href='$requestProfileURL'><img class='requestPhoto' alt='userPhoto' src='$requestPictureURL'></a>");
+                  print("<p>Name: $requestName</p>");
                   print("</td>");
                   print("<td>");
                   print("<div>");
-                  print("<p>$resOfferDescription</p>");
+                  print("<p>$resRequestDescription</p>");
                   print("<p>Contact: $resContact</p>");
-                  print("<p>$resOfferTimeStamp</p>");
+                  print("<p>$resRequestTimeStamp</p>");
                   print("</div>");
                   print("</td>");
                   print("</tr>");

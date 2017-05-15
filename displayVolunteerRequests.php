@@ -24,7 +24,7 @@
             
             $user = $mysqli->query("SELECT * FROM users WHERE username=$username");
             
-            if ($user && $user->num_rows >= 1){
+            if ($user && $user->num_rows == 1){
                 $id = $user->fetch_assoc()['userID'];
         
                 if (isset($_POST['timeStamp']) && isset($_POST['requestID']) && isset($_POST['description']) && trim($_POST['description'])!='' && trim($_POST['requestID'])!='' && trim($_POST['timeStamp'])!=''){
@@ -32,7 +32,7 @@
                     $reqID = filter_var(trim($_POST['requestID']), FILTER_VALIDATE_INT);
                     $timeStamp = filter_var(trim($_POST['timeStamp']),FILTER_SANITIZE_STRING);
                     
-                    $req = $mysqli->query("SELECT * FROM requests INNER JOIN users ON request.userID=users.userID WHERE requestID=$reqID");
+                    $req = $mysqli->query("SELECT * FROM request INNER JOIN users ON request.userID=users.userID WHERE request.requestID=$reqID");
                     
                     if ($req && $req->num_rows >= 1){
                         
@@ -57,10 +57,10 @@
       
     $type = 'volunteer';
         
-    $requests = $mysqli->query("SELECT * FROM requests INNER JOIN users ON requests.userID=users.userID WHERE requestType=$type");
+    $requests = $mysqli->query("SELECT * FROM request INNER JOIN users ON request.userID=users.userID WHERE request.requestType=$type");
       
 
-    if ($requests && $requests->num_rows == 1){
+    if ($requests && $requests->num_rows >= 1){
 
       while($requests = $request ->fetch_assoc() ){
           $requestID=$request['requestID'];
@@ -96,6 +96,7 @@
           print("<p>$requestLocation</p>");
           print("<p>$requestDescription</p>");
           print("<p>Contact: $contact</p>");
+          print("<p>Status: $requestClosed</p>");
           print("<p>$requestTimeStamp</p>");
           print("</div>");
           print("</td>");
@@ -108,7 +109,7 @@
               print("<p>Respond to this request:</p>");
               print("</td>");
               print("<td>");
-              print("<form method='post' class='responddentOffers' action='requests.php'>");
+              print("<form method='post' class='respondentOffers' action='requests.php'>");
               print("Description: <input type='text' name='descrption' required>");
               print("<input class='hidden' type='text' name='requestID' value='$requstID' required>");
               print("<input id='volunteerResOfferDate' class='hidden' type='text' name='timeStamp' required>");
@@ -131,7 +132,7 @@
           print("</table>");
           
           #display respondent offers to one request
-          $responses = $mysqli->query("SELECT * FROM respondentoffers INNER JOIN requests ON respondentoffers.requestID INNER JOIN requests.requestID INNER JOIN users ON respondentoffers.userID=users.userID WHERE requests.requestID=$requestID");
+          $responses = $mysqli->query("SELECT * FROM respondentoffers INNER JOIN request ON respondentoffers.requestID = request.requestID INNER JOIN users ON respondentoffers.userID=users.userID WHERE respondentoffers.requestID=$requestID");
           
           if ($responses && $responses->num_rows >= 1){
               while($responses = $response ->fetch_assoc() ){
@@ -152,7 +153,7 @@
                   print("<tbody>");
                   print("<tr>");
                   print("<td>");
-                  print("<a href='$offerProfileURL'><img class='requestPhoto' alt='userPhoto' src='$offerPictureURL'></a>");
+                  print("<a href='$offerProfileURL'><img class='offerPhoto' alt='userPhoto' src='$offerPictureURL'></a>");
                   print("<p>Name: $offerName</p>");
                   print("</td>");
                   print("<td>");
