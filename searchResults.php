@@ -130,7 +130,7 @@ while ( $row = $result->fetch_assoc() ){
 	print " <td> {$row[ 'age' ]} </td>";
   print " <td> {$row[ 'email' ]} </td>";
   print " <td> {$row[ 'phone' ]} </td>";
-  print " <td class = \"myid\"><img src="."../images/"."{$row['pictureURL']} alt='image'></td>";
+  print " <td class = \"myid\"><img src="."../img/"."{$row['pictureURL']} alt='image'></td>";
 	print("</tr>");
 }
 
