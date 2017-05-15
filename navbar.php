@@ -54,7 +54,17 @@
 
       <ul class="menu">
         <li><a <?php echo ($page == 'home') ? 'id="active"' : '';?> href="index.php">Home</a></li>
-        <li><a <?php echo ($page == 'profile') ? 'id="active"' : '';?> href="profile.php">Profile</a></li>
+        <?php
+
+        echo '<li><a '.(($page == 'profile') ? 'id="active"' : '');
+        if ( isset( $_SESSION[ 'logged_user' ] ) ) {
+          echo ' href="profile.php"';
+        }
+        else {
+          echo ' href="login.php"';
+        }
+          echo '>Profile</a></li>';
+        ?>
         <li><a <?php echo ($page == 'requests') ? 'id="active"' : '';?> href="requests.php">Requests</a></li>
         <li><a <?php echo ($page == 'offers') ? 'id="active"' : '';?> href="offers.php">Offers</a></li>
         <li><a <?php echo ($page == 'help') ? 'id="active"' : '';?> href="help.php">Help</a></li>
