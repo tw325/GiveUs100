@@ -62,7 +62,7 @@
 
     if ($requests && $requests->num_rows >= 1){
 
-      while($requests = $request ->fetch_assoc() ){
+      while($request = $requests ->fetch_assoc() ){
           $requestID=$request['requestID'];
           $requestName=$request['name'];
           
@@ -135,7 +135,7 @@
           $responses = $mysqli->query("SELECT * FROM respondentoffers INNER JOIN request ON respondentoffers.requestID = request.requestID INNER JOIN users ON respondentoffers.userID=users.userID WHERE respondentoffers.requestID=$requestID");
           
           if ($responses && $responses->num_rows >= 1){
-              while($responses = $response ->fetch_assoc() ){
+              while($response = $responses ->fetch_assoc() ){
                   $offerName=$response['name'];
                   $offerProfileURL=$response['profileURL'];
                   $offerPictureURL=$response['pictureURL'];
