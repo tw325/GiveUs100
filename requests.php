@@ -32,96 +32,94 @@
   ?>
 
   <h1>Requests</h1>
-    <table class="request">
-      <tr>
-        <td>
-          <a href=""><img class="requestPhoto" alt='user' src="images/user1.jpg"></a>
-          <h2>Kirk</h2>
-        </td>
-        <td><p>Request <br>
-              I need xxxxxxxxxxxxxxxxx <br>
-              Time:xxxxxxx <br>
-            Location:xxxxxxx</p>
-          <p>Respond:</p>
-          <form method="post" class="sampleRespond" action="requests.php">
-            <input type="text" name="description" required />
-            <input type="submit" name="respondSubmit" value="Submit" />
-          </form>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
-          <p class="comment-name">Spock</p>
-        </td>
-        <td>
-          <div>
-            <p>Offer to the Request</p>
-            <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
-          <p class="comment-name">Spock</p>
-        </td>
-        <td>
-          <div>
-            <p>Offer to the Request</p>
-            <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-          </div>
-        </td>
-      </tr>
-    </table>
+  <table class="request">
+    <tr class="request-post">
+      <td>
+        <a href=""><img class="requestPhoto" alt='user' src="images/user1.jpg"></a>
+        <h2>Kirk</h2>
+      </td>
+      <td><p>Request <br>
+        I need xxxxxxxxxxxxxxxxx <br>
+        Time:xxxxxxx <br>
+        Location:xxxxxxx</p>
+      </td>
+    </tr>
+    <tr class="request-comment">
+      <td>
+        <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
+        <p class="comment-name">Spock</p>
+      </td>
+      <td>
+        <p>Offer to the Request</p>
+        <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+      </td>
+    </tr>
+    <tr class="request-comment">
+      <td>
+        <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
+        <p class="comment-name">Spock</p>
+      </td>
+      <td>
+        <p>Offer to the Request</p>
+        <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Respond:</p>
+      </td>
+      <td>
+        <form method="post" class="sampleRespond" action="requests.php">
+          <input type="text" name="descrption" required />
+          <input type="submit" name="respondSubmit" value="Submit" />
+        </form>
+      </td>
+    </tr>
+  </table>
 
-    <table class="request">
-      <tr>
-        <td>
-          <a href=""><img class="requestPhoto" alt="user" src="images/user2.jpg"></a>
-          <h2>Spock</h2>
-        </td>
-        <td>
-          <div>
-            <p>Request</p>
-            <p>I need xxxxxxxxxxxxxxxxx for xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-            <p>Time:xxxxxxx</p>
-            <p>Location:xxxxxxx</p>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
-          <p class="comment-name">Spock</p>
-        </td>
-        <td>
-          <div>
-            <p>Offer to the Request</p>
-            <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>Respond:</p>
-        </td>
-        <td>
-          <form method="post" class="sampleRespond" action="requests.php">
-            <input type="text" name="descrption" required />
-            <input type="submit" name="respondSubmit" value="Submit" />
-          </form>
-        </td>
-      </tr>
-    </table>
+  <table class="request">
+    <tr class="request-post">
+      <td>
+        <a href=""><img class="requestPhoto" alt="user" src="images/user2.jpg"></a>
+        <h2>Spock</h2>
+      </td>
+      <td>
+        <p>Request</p>
+        <p>I need xxxxxxxxxxxxxxxxx for xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+        <p>Time:xxxxxxx</p>
+        <p>Location:xxxxxxx</p>
+      </td>
+    </tr>
+    <tr class="request-comment">
+      <td>
+        <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
+        <p class="comment-name">Spock</p>
+      </td>
+      <td>
+        <p>Offer to the Request</p>
+        <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <p>Respond:</p>
+      </td>
+      <td>
+        <form method="post" class="sampleRespond" action="requests.php">
+          <input type="text" name="descrption" required />
+          <input type="submit" name="respondSubmit" value="Submit" />
+        </form>
+      </td>
+    </tr>
+  </table>
 
-<?php
-echo'</td></tr></table>
-</div>';
+  <?php
+  echo'</td></tr></table>
+  </div>';
 
   include 'footer.php';
 
-?>
+  ?>
 
 </body>
 
