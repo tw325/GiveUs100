@@ -31,41 +31,40 @@
 
   ?>
 
-  <h2>Request</h2>
+  <h1>Requests</h1>
     <table class="request">
       <tr>
         <td>
           <a href=""><img class="requestPhoto" alt='user' src="images/user1.jpg"></a>
-          <p>Name: Kirk</p>
+          <h2>Kirk</h2>
         </td>
-        <td>
-          <div>
-            <p>Request</p>
-            <p>I need xxxxxxxxxxxxxxxxx for xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-            <p>Time:xxxxxxx</p>
-            <p>Location:xxxxxxx</p>
-          </div>
-        </td>
-      </tr>
-      <tr>
-        <td>
+        <td><p>Request <br>
+              I need xxxxxxxxxxxxxxxxx <br>
+              Time:xxxxxxx <br>
+            Location:xxxxxxx</p>
           <p>Respond:</p>
-        </td>
-        <td>
           <form method="post" class="sampleRespond" action="requests.php">
-            <input type="text" name="descrption" required />
+            <input type="text" name="description" required />
             <input type="submit" name="respondSubmit" value="Submit" />
           </form>
         </td>
       </tr>
-    </table>
-
-    <h2>Respondent Offers</h2>
-    <table class="offer">
       <tr>
         <td>
           <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
-          <p>Name: Spock</p>
+          <p class="comment-name">Spock</p>
+        </td>
+        <td>
+          <div>
+            <p>Offer to the Request</p>
+            <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
+          <p class="comment-name">Spock</p>
         </td>
         <td>
           <div>
@@ -76,27 +75,11 @@
       </tr>
     </table>
 
-    <table class="offer">
-      <tr>
-        <td>
-          <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
-          <p>Name: Spock</p>
-        </td>
-        <td>
-          <div>
-            <p>Offer to the Request</p>
-            <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-          </div>
-        </td>
-      </tr>
-    </table>
-
-    <h2>Request</h2>
     <table class="request">
       <tr>
         <td>
           <a href=""><img class="requestPhoto" alt="user" src="images/user2.jpg"></a>
-          <p>Name: Spock</p>
+          <h2>Spock</h2>
         </td>
         <td>
           <div>
@@ -109,6 +92,18 @@
       </tr>
       <tr>
         <td>
+          <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
+          <p class="comment-name">Spock</p>
+        </td>
+        <td>
+          <div>
+            <p>Offer to the Request</p>
+            <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>
           <p>Respond:</p>
         </td>
         <td>
@@ -116,22 +111,6 @@
             <input type="text" name="descrption" required />
             <input type="submit" name="respondSubmit" value="Submit" />
           </form>
-        </td>
-      </tr>
-    </table>
-
-    <h2>Respondent Offers</h2>
-    <table class="offer">
-      <tr>
-        <td>
-          <a href=""><img class="offerPhoto" alt="user" src="images/user1.jpg"></a>
-          <p>Name: Kirk</p>
-        </td>
-        <td>
-          <div>
-            <p>Offer</p>
-            <p>I can xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-          </div>
         </td>
       </tr>
     </table>
@@ -139,9 +118,9 @@
 <?php
 echo'</td></tr></table>
 </div>';
-    
+
   include 'footer.php';
-    
+
 ?>
 
 </body>

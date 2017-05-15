@@ -1,5 +1,5 @@
-<div id="topbar-padding">
-  <div id="topbar">
+<div class="topbar-padding">
+  <div class="topbar">
     <ul id="header">
       <?php
       echo '<li><a href="index.php"><img alt="Home" src="img/home.png" width="20" height="20">seniorcitizenconnect</a></li>';
@@ -23,7 +23,7 @@
 
 <div class="content">
   <table>
-    <tr><td class="twincols">
+    <tr><td class="twincols-1">
       <ul class="menu">
         <li><a <?php echo ($page == 'home') ? 'id="active"' : '';?> href="index.php">Home</a></li>
         <li><a <?php echo ($page == 'profile') ? 'id="active"' : '';?> href="profile.php">Profile</a></li>
@@ -66,4 +66,4 @@
 
           </ul>
         </td>
-        <td>
+        <td class="twincols-2">

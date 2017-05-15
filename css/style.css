@@ -8,6 +8,7 @@ h1, h2, h3, ul{
 	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 	font-style: normal;
 	font-variant: normal;
+	display: block;
 	text-align: center;
 }
 
@@ -16,19 +17,22 @@ p {
 	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
+}
+
+.comment-name{
 	text-align: center;
 }
 
-#topbar-padding {
+.topbar-padding {
 	width: 100%;
 	background-color: #333333;
 }
 
-#topbar {
+.topbar {
 	font-size: 24px;
 	position:relative;
 	margin: auto;
-	width: 90%;
+	width: 80%;
 }
 
 ul#header {
@@ -138,28 +142,6 @@ ul.menu li a:hover {
 	text-decoration: underline;
 }
 
-/*ul{
-list-style-type: none;
-margin: 0;
-padding: 0;
-overflow: hidden;
-background-color: black;
-}ddfljk
-
-li{
-float: left;
-border-right: 2px solid #333333;
-}
-
-li a {
-display: block;
-color: white;
-text-align: center;
-padding: 10px 20px;
-text-decoration: none;
-font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
-}*/
-
 .user{
 	float: right;
 	display: block;
@@ -176,22 +158,48 @@ table{
 	 width:100%;
 }
 
-.twincols{
-	width: 200px;
+.twincols-1{
+	width: 20%;
+	border: 1px solid #ededed;
+}
+
+.twincols-2{
+	width: 80%;
+	padding-right: 40px;
+	padding-left: 40px;
+	border: 1px solid #ededed;
+}
+
+.offer, .request {
+	border-left: 3px gray solid;
+	background-color: #f1f1f1;
+	margin-bottom: 60px;
+	border-collapse: collapse;
+}
+
+.offer, .request td{
+	border-bottom: 3px white solid;
+	border-right: 2px white solid;
+	background-color: #f1f1f1;
+}
+
+.request img, .offer img{
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin-left: auto;
+	margin-right: auto;
+	height:auto;
 }
 
 td, th{
 	margin-top: 20px;
 	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 	font-size: 14px;
-	font-style: normal;
-	font-variant: normal;
 	vertical-align: top;
-	border: 1px solid #ededed;
 	margin: 10px auto;
-	background-color: #ffffff;
 	padding: 10px;
-	border-radius: 3px;
+	border-radius: 2px;
 }
 
 body{
@@ -204,7 +212,7 @@ body{
 .content {
 	position:relative;
 	margin: 10px auto;
-	width: 90%;
+	width: 80%;
 	background-color: #ffffff;
 	padding: 10px;
 	border-radius: 3px;
@@ -241,22 +249,6 @@ body{
 #profile img {
 	height: 250px;
 	width: 300px;
-}
-
-.offerPhoto {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    height:350px;
-    width: 350px;
-}
-
-.requestPhoto {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    height:350px;
-    width: 350px;
 }
 
 
@@ -309,5 +301,5 @@ input[type=text]:focus,input[type=password]:focus,input[type=url]:focus {
 
 #active {
 	background-color: #555;
-	color: #A5FEE3;
+	color: #EDEF85;
 }
