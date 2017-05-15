@@ -1,10 +1,11 @@
-<?php session_start(); $page = 'Donation Requests';?>
+<?php session_start(); $page = 'Volunteer Requests';?>
 
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DONATION REQUESTS</title>
+  <title>VOLUNTEER REQUESTS</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
+  <script src="js/main.js"></script>
 </head>
 <body>
     
@@ -54,7 +55,7 @@
     
     #code for retreiving informatin from the database and format the way data displays on the website
       
-    $type = 'donation';
+    $type = 'volunteer';
         
     $requests = $mysqli->query("SELECT * FROM requests INNER JOIN users ON requests.userID=users.userID WHERE requestType=$type");
       
@@ -110,7 +111,7 @@
               print("<form method='post' class='responddentOffers' action='requests.php'>");
               print("Description: <input type='text' name='descrption' required>");
               print("<input class='hidden' type='text' name='requestID' value='$requstID' required>");
-              print("<input id='donationResOfferDate' class='hidden' type='text' name='timeStamp' required>");
+              print("<input id='volunteerResOfferDate' class='hidden' type='text' name='timeStamp' required>");
               print("<input type='submit' name='respondSubmit' value='Submit'>");
               print("</form>");
               print("</td>");
