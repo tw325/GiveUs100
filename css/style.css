@@ -135,8 +135,7 @@ ul.menu li a {
 }
 
 ul.menu li a:hover {
-	background-color: #555;
-	color: #A5FEE3;
+	text-decoration: underline;
 }
 
 /*ul{
@@ -309,5 +308,6 @@ input[type=text]:focus,input[type=password]:focus,input[type=url]:focus {
 }
 
 #active {
+	background-color: #555;
 	color: #A5FEE3;
 }
