@@ -8,37 +8,66 @@
 </head>
 <body>
   <?php include 'navbar.php';?>
-  <div id="profile">
-	<div class="name"> Name McNamey </div><br>
-  	<img src= img/tempProfile.jpg onerror = "this.src=\'http://i.imgur.com/hPYOVf9.jpg\';" alt="pic"/><br>
-  	<div class="description">description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description description </div>
-  	<div class="groups"><br><b>Groups:</b> Senior Citizen, Volunteer</div>
-      
-    <table>
-        <tr>
-            <td>
-                <div class="pastPosts">
-                    <ul>
-  		                <li><a href="profile.php">Previous Posts</a></li>
-  		                <li><a href="profile.php">Previous Requests</a></li>
-  		                <li><a href="profile.php">Previous Offers</a></li>                        
-                    </ul>
-  	             </div>
-            </td>
-            <td>
-                <div class="pastPosts">
-                    <ul>
-  		                <li><a href="profile.php">Tagged Posts</a></li>
-  		                <li><a href="profile.php">Tagged Requests</a></li>
-  		                <li><a href="profile.php">Tagged Offers</a></li>                        
-                    </ul>
-  	             </div>
-            </td>
-        </tr>
-      </table>
+  <?php
+  if ( isset( $_SESSION[ 'logged_user' ] ) ) {
 
-  </div>
-    <?php include 'footer.php';?>
+    $username = $_SESSION[ 'logged_user' ];
+
+    #connect to the database
+    require_once 'config.php';
+    $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+    $result = $mysqli->query("SELECT * FROM users WHERE username='$username'");
+
+    if ($result && $result->num_rows == 1) {
+      $row = $result->fetch_assoc();;
+
+      $name = $row['name'];
+      $userType = $row['userType'];
+      $address = $row['address'];
+      $language = $row['language'];
+      $age = $row['age'];
+      $username = $row['username'];
+      $pictureURL = $row['pictureURL'];
+      $email = $row['email'];
+      $phone = $row['phone'];
+      $preferredContact = $row['preferredContact'];
+
+
+      print("<div id=\"profile\">
+        <div class=\"name\">$name</div><br>
+        <img src=$pictureURL alt=\"pic\"/><br>
+        $userType<br>
+        $address<br>
+        $language<br>
+        $age<br>
+        $email<br>
+        $phone<br>
+        $preferredContact<br>"
+      );
+      echo '<table>
+          <tr>
+            <td>
+              <div class="pastPosts">
+                <ul>
+                  <li><a href="profile.php">Previous Posts</a></li>
+                  <li><a href="profile.php">Previous Requests</a></li>
+                  <li><a href="profile.php">Previous Offers</a></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>';
+
+      echo '<a href="accountEdit.php"> EDIT YOUR PROFILE </a>';
+    }
+  }
+  ?>
+
+  <?php
+  include 'footer.php';
+  ?>
 </body>
 
 </html>

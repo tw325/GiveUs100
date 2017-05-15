@@ -35,7 +35,7 @@
   <table class="request">
     <tr class="request-post">
       <td>
-        <a href=""><img class="requestPhoto" alt='user' src="images/user1.jpg"></a>
+        <a href=""><img class="requestPhoto" alt='user' src="img/kirk.jpg"></a>
         <h2>Kirk</h2>
       </td>
       <td><p>Request <br>
@@ -46,7 +46,7 @@
     </tr>
     <tr class="request-comment">
       <td>
-        <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
+        <a href=""><img class="offerPhoto" alt="user" src="img/spock.jpg"></a>
         <p class="comment-name">Spock</p>
       </td>
       <td>
@@ -56,7 +56,7 @@
     </tr>
     <tr class="request-comment">
       <td>
-        <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
+        <a href=""><img class="offerPhoto" alt="user" src="img/spock.jpg"></a>
         <p class="comment-name">Spock</p>
       </td>
       <td>
@@ -80,7 +80,7 @@
   <table class="request">
     <tr class="request-post">
       <td>
-        <a href=""><img class="requestPhoto" alt="user" src="images/user2.jpg"></a>
+        <a href=""><img class="requestPhoto" alt="user" src="img/spock.jpg"></a>
         <h2>Spock</h2>
       </td>
       <td>
@@ -92,7 +92,7 @@
     </tr>
     <tr class="request-comment">
       <td>
-        <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
+        <a href=""><img class="offerPhoto" alt="user" src="img/spock.jpg"></a>
         <p class="comment-name">Spock</p>
       </td>
       <td>
@@ -114,11 +114,7 @@
   </table>
 
   <?php
-  echo'</td></tr></table>
-  </div>';
-
   include 'footer.php';
-
   ?>
 
 </body>

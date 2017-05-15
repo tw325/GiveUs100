@@ -64,7 +64,7 @@ ul#header li {
 }
 
 ul#header li a {
-	display: block;
+	display: inline;
 	color: white;
 	text-decoration: none;
 }
@@ -162,6 +162,13 @@ ul.menu li a:hover {
 	font-family: "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Tahoma, sans-serif;
 }
 
+.sidebarImg{
+	display: block;
+	margin: 0 auto;
+	width: 80%;
+
+}
+
 table{
 	/*max-width: 2px;*/
 	 width:100%;
@@ -242,9 +249,9 @@ body{
 }
 
 .icon{
-	width: 80%;
-	height: auto;
-	max-width: 200px;
+	height: 30px;
+	width: auto;
+	float: right;
 }
 
 #profile {
@@ -256,8 +263,8 @@ body{
 }
 
 #profile img {
-	height: 250px;
-	width: 300px;
+	width: 40%;
+	height: auto;
 }
 
 

@@ -32,17 +32,31 @@
 
     ?>
 
-    <h2>Offer</h2>
+    <h1>Offer</h1>
     <table class="offer">
         <tr>
             <td>
-                <a href=""><img class="offerPhoto" alt="user" src="images/user1.jpg"></a>
-                <p>Name: Kirk</p>
+                <a href=""><img class="offerPhoto" alt="user" src="img/kirk.jpg"></a>
+                <h2>Kirk</h2>
             </td>
             <td>
                 <div>
                     <p>Offer</p>
                     <p>I can xxxxxxxxxxxxxxxxx for xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+                    <p>Time:xxxxxxx</p>
+                    <p>Location:xxxxxxx</p>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href=""><img class="offerPhoto" alt="user" src="img/kirk.jpg"></a>
+                <p>Kirk</p>
+            </td>
+            <td>
+                <div>
+                    <p>Response</p>
+                    <p>I would like xxxxxxxxxxxxxxxxx x</p>
                     <p>Time:xxxxxxx</p>
                     <p>Location:xxxxxxx</p>
                 </div>
@@ -61,45 +75,14 @@
         </tr>
     </table>
 
-    <h2>Respondent Requests</h2>
-    <table class="rquest">
-        <tr>
-            <td>
-                <a href=""><img class="requestPhoto" alt="user" src="images/user2.jpg"></a>
-                <p>Name: Spock</p>
-            </td>
-            <td>
-                <div>
-                    <p>Request for help</p>
-                    <p>I hope you can help xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                </div>
-            </td>
-        </tr>
-    </table>
-
-    <table class="request">
-        <tr>
-            <td>
-                <a href=""><img class="offerPhoto" alt="user" src="images/user2.jpg"></a>
-                <p>Name: Spock</p>
-            </td>
-            <td>
-                <div>
-                    <p>Rquest for help</p>
-                    <p>I hope you can help xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
-                </div>
-            </td>
-        </tr>
-    </table>
-
 <?php
 echo'</td></tr></table>
 </div>';
-    
+
   include 'footer.php';
-    
+
 ?>
-   
+
 </body>
 
 </html>
