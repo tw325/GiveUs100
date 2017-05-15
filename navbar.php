@@ -27,12 +27,18 @@
           $phone = $row['phone'];
           $preferredContact = $row['preferredContact'];
           echo "<li><a href=\"profile.php\"><img class=\"icon\" src=\"$pictureURL\"></a></li>";
-          echo '<li><input type="text" name="search"> <input type="submit" value="GO"></li>';
+          <form class="bookFormClass" action = "searchall.php" method="post" enctype="multipart/form-data">
+          <li><input type="text" name="search" placeholder="Search..."></li>
+          <li><input type="submit" value="Search"></li>
+          </form>
           echo '<li><a href="logout.php">log out</a></li>';
         }
       }
       else {
-        echo '<li><input type="text" name="search"> <input type="submit" value="GO"></li>';
+          <form class="bookFormClass" action = "searchall.php" method="post" enctype="multipart/form-data">
+          <li><input type="text" name="search" placeholder="Search..."></li>
+          <li><input type="submit" value="Search"></li>
+          </form>
         echo '<li><a href="login.php">log in</a></li>';
       }
 
