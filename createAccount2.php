@@ -40,7 +40,7 @@
       $phone = filter_input($u_phone, FILTER_SANITIZE_STRING)
       $pcontact = filter_input($u_pcontact, FILTER_SANITIZE_STRING)
 
-      $target_dir = "images/";
+      $target_dir = "img/";
       $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
       $uploadOk = 1;
       $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
