@@ -38,6 +38,9 @@ if ($row['search_count'] > 0) {
   print( '<thead><tr></th><th>Offer Title</th><th>Offer Description</th><th>Status</th><th>Time</th><th>Location</th><th>Type</th><th>Timestamp</th></tr></thead>' );
   while ( $row = $result->fetch_assoc() ){
     print("<tr>");
+    
+    $url = "profile.php?userID=".$row['userID'];
+    print ("<td iclass = \"myid\"><a href = '$url'>"." <img style=\"width: 50px;height: 50px;\" src="."{$row['pictureURL']} alt='image'></td>");
     print " <td>{$row[ 'offerTitle' ]} </td>";
     print " <td>{$row[ 'offerDescription' ]} </td>";
     print " <td> {$row[ 'offerClosed' ]} </td>";
@@ -45,8 +48,6 @@ if ($row['search_count'] > 0) {
     print " <td> {$row[ 'offerLocation' ]} </td>";
     print " <td> {$row[ 'offerType' ]} </td>";
     print " <td> {$row[ 'offerTimeStamp' ]} </td>";
-    $url = "profile.php?userID=".$row['userID'];
-    print ("<td iclass = \"myid\"><a href = '$url'>"." <img style=\"width: 50px;height: 50px;\" src="."{$row['pictureURL']} alt='image'></td>");
     print("</tr>");
   }
   print('</table>');
@@ -75,6 +76,8 @@ print('<table>');
 print( '<thead><tr></th><th>Request Title</th><th>Request Description</th><th>Status</th><th>Time</th><th>Location</th><th>Type</th><th>Timestamp</th></tr></thead>' );
 while ( $row = $result->fetch_assoc() ){
   print("<tr>");
+  $url = "profile.php?userID=".$row['userID'];
+  print ("<td iclass = \"myid\"><a href = '$url'>"." <img style=\"width: 50px;height: 50px;\" src="."{$row['pictureURL']} alt='image'></td>");
   print " <td>{$row[ 'requestTitle' ]} </td>";
   print " <td>{$row[ 'requestDescription' ]} </td>";
   print " <td> {$row[ 'requestClosed' ]} </td>";
@@ -82,8 +85,6 @@ while ( $row = $result->fetch_assoc() ){
   print " <td> {$row[ 'requestLocation' ]} </td>";
   print " <td> {$row[ 'requestType' ]} </td>";
   print " <td> {$row[ 'requestTimeStamp' ]} </td>";
-  $url = "profile.php?userID=".$row['userID'];
-  print ("<td iclass = \"myid\"><a href = '$url'>"." <img style=\"width: 50px;height: 50px;\" src="."{$row['pictureURL']} alt='image'></td>");
   print("</tr>");
 }
 print('</table>');
@@ -112,6 +113,8 @@ print('<table>');
 print( '<thead><tr></th><th>Name</th><th>User Type</th><th>Gender</th><th>Address</th><th> Preffered Language</th><th>Age</th><th>Email</th><th>Phone Number</th></tr></thead>' );
 while ( $row = $result->fetch_assoc() ){
   print("<tr>");
+  $url = "profile.php?userID=".$row['userID'];
+  print ("<td iclass = \"myid\"><a href = '$url'>"." <img style=\"width: 50px;height: 50px;\" src="."{$row['pictureURL']} alt='image'></td>");
   print " <td>{$row[ 'name' ]} </td>";
   print " <td>{$row[ 'userType' ]} </td>";
   print " <td> {$row[ 'gender' ]} </td>";
@@ -120,8 +123,6 @@ while ( $row = $result->fetch_assoc() ){
   print " <td> {$row[ 'age' ]} </td>";
   print " <td> {$row[ 'email' ]} </td>";
   print " <td> {$row[ 'phone' ]} </td>";
-  $url = "profile.php?userID=".$row['userID'];
-  print ("<td iclass = \"myid\"><a href = '$url'>"." <img style=\"width: 50px;height: 50px;\" src="."{$row['pictureURL']} alt='image'></td>");
   print("</tr>");
 }
 print('</table>');
