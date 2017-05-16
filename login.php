@@ -26,6 +26,9 @@
           </table>
           <br><input type="submit" value="Submit">
         </form>
+        <form method="post" action="updtbookf.php">
+	      <input type="submit" name="submit" value="Go Back To Update Form">
+	      </form>
         <?php
       } else{
         require_once 'config.php';
