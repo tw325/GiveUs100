@@ -41,7 +41,6 @@
       } else {
         $valid = true;
         $rel = "UPDATE users SET ";
-        echo 'yo';
 
         $name = filter_input( INPUT_POST, 'name', FILTER_SANITIZE_STRING );
         $password = filter_input( INPUT_POST, 'password', FILTER_SANITIZE_STRING );
@@ -105,6 +104,24 @@
           $pref = $_POST['pref'];
           $rel = $rel."preferredContact='$pref', ";
         }
+        $picChanged = false;
+        //Handle photo
+        if(!isset($_FILES['photo']) || $_FILES['photo']['error'] == UPLOAD_ERR_NO_FILE) {
+          echo ""; 
+        } else {
+          $newFile = $_FILES['photo'];
+          $fileName = $newFile['name'];
+          $ext = pathinfo($fileName, PATHINFO_EXTENSION);
+          if (!strcmp(strtoupper($ext), "JPG") && !strcmp(strtoupper($ext), "PNG") && !strcmp(strtoupper($ext), "JPEG")) {
+            echo 'Error: Please only use jpg or png\n';
+            $valid = false;
+          }
+
+          $pictureUrl = "img/".$username.".".$ext;
+          $rel = $rel."pictureURL='$pictureUrl', ";
+          $picChanged = true;
+        }
+        
 
         $username = $_SESSION[ 'logged_user' ];
         $rel = substr($rel, 0, -2);
@@ -115,6 +132,10 @@
               echo 'Account edited!';
           } else {
               echo "Error: " . $rel . "<br>" . $mysqli->error;
+          }
+          if ($newFile['error'] == 0) {
+            $tempName = $newFile['tmp_name'];
+            move_uploaded_file($tempName, $pictureUrl);
           }
 
         }
