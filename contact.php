@@ -10,7 +10,9 @@
   <?php include 'navbar.php';?>
   <div class="content">
     <h1> CONTACT US: </h1>
-    <a href="https://github.com/twangMRwang123/GiveUs100">Our Github</a>
+    <p>If you need any help please do not hesitate to contact us at
+      <a href="mailto:admin@seniorcitizenconnect.com?Subject=Help" target="_top">admin@seniorcitizenconnect.com</a>
+    </p>
   </div>
   <?php include 'footer.php';?>
 </body>
