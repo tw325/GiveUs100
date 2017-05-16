@@ -270,6 +270,9 @@ body{
 	text-align: center;
 	text-transform: capitalize;
 }
+#profile li {
+	list-style-type: none;
+}
 
 #profile img {
 	width: 40%;
