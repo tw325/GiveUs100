@@ -260,6 +260,7 @@ body{
 	margin-left: 10px;
 	float: center;
 	text-align: center;
+	text-transform: capitalize;
 }
 
 #profile img {
