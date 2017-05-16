@@ -49,6 +49,7 @@
         </form>
 
         <?php echo '<li><a href="login.php">log in</a></li>';
+              echo '<li><a href="register.php">register</a></li>';
       }
       ?>
 
