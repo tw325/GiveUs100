@@ -299,15 +299,15 @@ input[type=submit] {
 	color: #fff;
 	border-radius: 2px;
 	padding: 4px 10px;
-	background-color: #32CD32;
-	border: 3px solid gray;
+	background-color: #62A9FF;
+	border: 2px solid gray;
 }
 
-input[type=submit]:hover {background-color: #008000}
+input[type=submit]:hover {background-color: #2897B7}
 
 input[type=submit]:active {
 	border: 3px solid white;
-	background-color: #008000;
+	background-color: #2897B7;
 }
 
 input[type=text], input[type=password], input[type=url]{
