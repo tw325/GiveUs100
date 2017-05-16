@@ -319,3 +319,8 @@ input[type=text]:focus,input[type=password]:focus,input[type=url]:focus {
 	background-color: #555;
 	color: #EDEF85;
 }
+
+.hidden {
+    display: none;
+    visibility: hidden;
+}

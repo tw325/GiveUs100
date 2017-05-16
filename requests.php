@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>REQUESTS</title>
+  <title>SAMPLE REQUESTS</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>

@@ -1,4 +1,4 @@
-<?php session_start(); $page = 'Donation Offers';?>
+<?php session_start(); $page = 'donation offers';?>
 
 <!DOCTYPE html>
 <html>
@@ -57,9 +57,9 @@
     
     #code for retreiving informatin from the database and format the way data displays on the website
       
-    $type = 'donation';
+    $type = 'Donation';
         
-    $offers = $mysqli->query("SELECT * FROM offer INNER JOIN users ON offer.userID=users.userID WHERE offer.offerType=$type");
+    $offers = $mysqli->query("SELECT * FROM offer INNER JOIN users ON offer.userID=users.userID WHERE offer.offerType='$type'");
       
 
     if ($offers && $offers->num_rows >= 1){
@@ -75,10 +75,12 @@
               $contact=$offer['phone'];
           } else if ($offer['preferredContact']=='email'){
               $contact=$offer['email'];
+          } else {
+              $contact='Visit profile page';
           }
           
           $offerTitle=$offer['offerTitle'];
-          $offerDescription=$offer['requestDescription'];
+          $offerDescription=$offer['offerDescription'];
           $offerClosed=$offer['offerClosed'];
           $offerTime=$offer['offerTime'];
           $offerLocation=$offer['offerLocation'];

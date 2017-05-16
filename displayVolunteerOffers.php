@@ -1,4 +1,4 @@
-<?php session_start(); $page = 'Volunteer Offers';?>
+<?php session_start(); $page = 'volunteer offers';?>
 
 <!DOCTYPE html>
 <html>
@@ -12,7 +12,7 @@
     <h1>CODE IMPLEMENTATION NOT FINISHED</h1>
     
     <?php
-
+    
     include 'navbar.php';
     
     #connect to the database
@@ -58,9 +58,9 @@
     
     #code for retreiving informatin from the database and format the way data displays on the website
       
-    $type = 'volunteer';
+    $type = 'Volunteer';
         
-    $offers = $mysqli->query("SELECT * FROM offer INNER JOIN users ON offer.userID=users.userID WHERE offer.offerType=$type");
+    $offers = $mysqli->query("SELECT * FROM offer INNER JOIN users ON offer.userID=users.userID WHERE offer.offerType='$type'");
       
 
     if ($offers && $offers->num_rows >= 1 ){
@@ -76,10 +76,12 @@
               $contact=$offer['phone'];
           } else if ($offer['preferredContact'] === 'email'){
               $contact=$offer['email'];
+          } else {
+              $contact='Visit profile page';
           }
           
           $offerTitle=$offer['offerTitle'];
-          $offerDescription=$offer['requestDescription'];
+          $offerDescription=$offer['offerDescription'];
           $offerClosed=$offer['offerClosed'];
           $offerTime=$offer['offerTime'];
           $offerLocation=$offer['offerLocation'];
@@ -138,7 +140,7 @@
           $responses = $mysqli->query("SELECT * FROM respondentrequests INNER JOIN offer ON respondentrequests.offerID=offer.offerID INNER JOIN users ON respondentrequests.userID=users.userID WHERE respondentrequests.offerID=$offerID");
           
           if ($responses && $responses->num_rows >= 1){
-              while($response = $responses ->fetch_assoc() ){
+              while($response = $responses->fetch_assoc() ){
                   $requestName=$response['name'];
                   $requestProfileURL=$response['profileURL'];
                   $requestPictureURL=$response['pictureURL'];

@@ -1,4 +1,4 @@
-<?php session_start(); $page = 'Volunteer Requests';?>
+<?php session_start(); $page = 'volunteer requests';?>
 
 <!DOCTYPE html>
 <html>
@@ -55,9 +55,9 @@
     
     #code for retreiving informatin from the database and format the way data displays on the website
       
-    $type = 'volunteer';
+    $type = 'Volunteer';
         
-    $requests = $mysqli->query("SELECT * FROM request INNER JOIN users ON request.userID=users.userID WHERE request.requestType=$type");
+    $requests = $mysqli->query("SELECT * FROM request INNER JOIN users ON request.userID=users.userID WHERE request.requestType='$type'");
       
 
     if ($requests && $requests->num_rows >= 1){
@@ -73,6 +73,8 @@
               $contact=$request['phone'];
           } else if ($request['preferredContact']=='email'){
               $contact=$request['email'];
+          } else {
+              $contact='Visit profile page';
           }
           
           $requestTitle=$request['requestTitle'];
