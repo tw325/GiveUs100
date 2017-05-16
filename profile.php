@@ -73,7 +73,13 @@
     }
   }
   else {
-    echo 'You must be loggin in to view profiles.';
+    echo '<div id="profile">
+            <div class = "pastPosts">
+            <h2>Notice: Please login to view profiles.</h2>';
+    echo '<ul>
+            <li style="list-style-type: none;"><a href="login.php"> Login </a></li>
+          <ul></div></div>';
+
   }
   ?>
 
