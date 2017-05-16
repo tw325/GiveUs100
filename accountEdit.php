@@ -103,7 +103,7 @@
         }
         if (!empty($pref)) {
           $pref = $_POST['pref'];
-          $rel = $rel."pref='$pref', ";
+          $rel = $rel."preferredContact='$pref', ";
         }
 
         $username = $_SESSION[ 'logged_user' ];
