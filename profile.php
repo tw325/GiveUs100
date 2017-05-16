@@ -59,16 +59,15 @@
           <tr>
             <td>
               <div class="pastPosts">
-                <ul>';
-                  
-      echo '</ul>
+                <ul>
+                  <li><a href="accountEdit.php"> EDIT YOUR PROFILE </a></li>
+                </ul>
               </div>
             </td>
           </tr>
         </table>
       </div>';
-
-      echo '<a href="accountEdit.php"> EDIT YOUR PROFILE </a>';
+      echo '';
     }
   }
   ?>
