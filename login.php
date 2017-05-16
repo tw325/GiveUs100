@@ -29,7 +29,7 @@
           </tr>
           <tr><td><input type="submit" value="Submit"></td></tr>
         </form>
-        <form method="post" action="createAccount.php">
+        <form method="post" action="register.php">
           <tr><td><p><b>Don't have an account? </b></p><input type="submit" name="submit" value="Create an Account"></td></tr>
         </form>
       </table>
