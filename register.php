@@ -11,7 +11,7 @@
 
   <?php
 
-      if (!isset($_POST["submit"])) {
+      if (!isset($_POST["reg"])) {
         ?>
         <h1> Register </h1>
         <form method="post" enctype="multipart/form-data">
@@ -36,7 +36,7 @@
               <tr><td>Password: </td> <td><input type="password" name="password" required></td>
               <tr><td>Profile Picture: <input type="file" name="photo" required></td>
           </table>
-          <br><input type="submit" name="submit" value="Add">
+          <br><input type="submit" name="reg" value="Register">
         </form>
         <?php
       } else {
@@ -58,31 +58,31 @@
         $newFile = $_FILES['photo'];
         $fileName = $newFile['name'];
         $ext = pathinfo($fileName, PATHINFO_EXTENSION);
-        if (!strcmp(strtoupper($ext), "JPG") && !strcmp(strtoupper($ext), "PNG")) {
-          echo 'Error: Please only use jpg or png';
+        if (!strcmp(strtoupper($ext), "JPG") && !strcmp(strtoupper($ext), "PNG") && !strcmp(strtoupper($ext), "JPEG")) {
+          echo 'Error: Please only use jpg or png\n';
           $valid = false;
         }
 
         //Validate
         if (!preg_match("/^[a-zA-Z0-9 _]+$/", $name) || strlen($name) > 50) {
           $valid = false; 
-          echo 'Invalid entries. Please only use letters, numbers, underscores, and spaces for name';
+          echo 'Invalid entries. Please only use letters, numbers, underscores, and spaces for name\n';
         }
         if (!preg_match("/^[a-zA-Z0-9 _]+$/", $username) || strlen($username) > 50) {
           $valid = false; 
-          echo 'Invalid entries. Please only use letters, numbers, underscores, and spaces for username';
+          echo 'Invalid entries. Please only use letters, numbers, underscores, and spaces for username\n';
         }
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
           $valid = false; 
-          echo 'Invalid email';
+          echo 'Invalid email\n';
         }
         if ($age==0 || $age > 100) {
           $valid = false; 
-          echo 'Invalid age';
+          echo 'Invalid age\n';
         }
         if ($phone==0 ) {
           $valid = false; 
-          echo 'Invalid phone number. Please use format (xxxxxxxxxx)';
+          echo 'Invalid phone number. Please use format (xxxxxxxxxx)\n';
         }
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
@@ -104,7 +104,11 @@
           if ($mysqli->query($rel) === TRUE) {
             if ($newFile['error'] == 0) {
               $tempName = $newFile['tmp_name'];
-              move_uploaded_file($tempName, $pictureUrl );
+              if (move_uploaded_file($tempName, $pictureUrl)) {
+               echo "The file ". $tempName. " has been uploaded to $pictureUrl.";
+              } else {
+               echo "Sorry, there was an error uploading your file.";
+              }
             }
               echo 'Account created!';
           } else {

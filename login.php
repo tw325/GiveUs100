@@ -26,7 +26,7 @@
           </table>
           <br><input type="submit" value="Submit">
         </form>
-        <form method="post" action="createAccount.php">
+        <form method="post" action="register.php">
 	      <input type="submit" name="submit" value="Create an Account">
 	      </form>
         <?php
