@@ -10,7 +10,7 @@
   <?php include 'navbar.php';?>
   <div class="content">
       <h1>Welcome!</h1>
-      <div class = "photoBanner">
+      <div class = "photoBanner-2">
         <img src="img/stock.jpg" alt="stock photo"><img src="img/stock1.jpg" alt="stock photo">
       </div>
       <h2>Purpose Driven Growth made easy <br>
@@ -24,7 +24,6 @@
   </div>
 
 <?php
-echo'</td></tr></table>';
      include 'footer.php';
 ?>
 </body>

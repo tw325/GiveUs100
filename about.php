@@ -9,6 +9,10 @@
 <body>
   <?php include 'navbar.php';?>
   <div class="content">
+    <h1> About Us: </h1>
+    <div class = "aboutus-1">
+      <img src="img/stock4.jpg" alt="stock photo">
+    </div>
     <h1> UNDER CONSTRUCTION: </h1>
     This project provides a welcoming platform to connect seniors, retirees and volunteers to provide a caring and helping community. This provides for volunteering opportunities, platform to connect specially targeted projects with potential donors with beneficiaries and volunteers.
   </div>

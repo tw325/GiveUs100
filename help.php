@@ -10,6 +10,9 @@
   <?php include 'navbar.php';?>
   <div class="content">
     <h1> OUR FAQ: </h1><br>
+    <div class = "photoBanner-1">
+      <img src="img/stock3.jpg" alt="stock photo">
+    </div>
     <h2> Under construction! <h2>
     <p>If you need any help please do not hesitate to contact us at
       <a href="mailto:admin@seniorcitizenconnect.com?Subject=Help" target="_top">admin@seniorcitizenconnect.com</a>

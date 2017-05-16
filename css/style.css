@@ -45,7 +45,19 @@ p {
 	width: 80%;
 }
 
-.photoBanner img {
+.aboutus-1 img {
+	width: 20%;
+	display: block;
+	margin: 0 auto;
+}
+
+.photoBanner-1 img {
+	width: 100%;
+	display: inline-block;
+	margin: 0 auto;
+}
+
+.photoBanner-2 img {
 	width: 50%;
 	display: inline-block;
 	margin: 0 auto;
