@@ -17,18 +17,19 @@ p {
 	font-size: 16px;
 	font-style: normal;
 	font-variant: normal;
+	width: 100%;
 }
 
 .comment-name{
 	text-align: center;
 }
 
-.request p{
+.request p,.offer p{
 	margin-top: 0;
 	margin-bottom: 0;
 }
 
-.request td {
+.request td, .offer td {
 	padding-bottom: 0;
 }
 
@@ -172,6 +173,7 @@ ul.menu li a:hover {
 table{
 	/*max-width: 2px;*/
 	 width:100%;
+    text-overflow: ellipsis;
 }
 
 .twincols-1{
@@ -226,7 +228,7 @@ body{
 }
 
 .content {
-	position:relative;
+	position: relative;
 	margin: 10px auto;
 	width: 80%;
 	background-color: #ffffff;

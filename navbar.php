@@ -29,26 +29,28 @@
           echo "<li><a href=\"profile.php\"><img class=\"icon\" src=\"$pictureURL\"></a></li>"; ?>
 
           <form class="bookForm" action = "searchall.php" method="post" enctype="multipart/form-data">
-          <li><input type="text" name="search" placeholder="Search..."></li>
-          <li><input type="submit" value="Search"></li>
+            <li>
+              <input type="text" name="search" placeholder="Search...">
+              <input type="submit" value="Search">
+            </li>
           </form>
 
-        <?php
+          <?php
           echo '<li><a href="logout.php">log out</a></li>';
         }
       }
       else { ?>
 
-          <form class="bookForm" action = "searchall.php" method="post" enctype="multipart/form-data">
+        <form class="bookForm" action = "searchall.php" method="post" enctype="multipart/form-data">
           <li>
             <input type="text" name="search" placeholder="Search...">
             <input type="submit" value="Search">
           </li>
-          </form>
+        </form>
 
         <?php echo '<li><a href="login.php">log in</a></li>';
       }
-    ?>
+      ?>
 
     </ul>
   </div>
@@ -76,7 +78,7 @@
         else {
           echo ' href="login.php"';
         }
-          echo '>Profile</a></li>';
+        echo '>Profile</a></li>';
         ?>
 
         <li><a onclick ="toggle('requestSub')" <?php echo ($page == 'requests') ? 'id="active"' : '';?> href="requests.php">Requests</a></li>

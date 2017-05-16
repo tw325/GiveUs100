@@ -22,7 +22,7 @@
         #code for retreiving informatin from the database and format the way data displays on the website
         $offers = $mysqli->query("SELECT * FROM offers");
 
-        if ($offers && $offerss->num_rows == 1){
+        if ($offers && $offerss->num_rows == 1){ #can be more than one
 
             while($offers = $offer ->fetch_assoc() ){
 
