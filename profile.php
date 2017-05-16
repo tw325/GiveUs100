@@ -55,20 +55,25 @@
         $phone<br>
         $preferredContact<br>"
       );
-      echo '<table>
-          <tr>
-            <td>
-              <div class="pastPosts">
-                <ul>
-                  <li><a href="accountEdit.php"> EDIT YOUR PROFILE </a></li>
-                </ul>
-              </div>
-            </td>
-          </tr>
-        </table>
-      </div>';
-      echo '';
+      if ($_SESSION[ 'logged_user' ] == $username) {
+        echo '<table>
+            <tr>
+              <td>
+                <div class="pastPosts">
+                  <ul>
+                    <li><a href="accountEdit.php"> EDIT YOUR PROFILE </a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+          </table>
+        </div>';
+        echo '';
+      }
     }
+  }
+  else {
+    echo 'You must be loggin in to view profiles.';
   }
   ?>
 
