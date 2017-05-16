@@ -47,6 +47,10 @@
             echo '<h2>Please <a href="login.php">login</a></h2>';
           }
         }
+        else {
+          echo '<h1>You did not login successfully.</h1>';
+          echo '<h2>Please <a href="login.php">login</a></h2>';
+        }
       }
 
        ?>
