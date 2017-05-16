@@ -23,7 +23,7 @@
     ?>
 
     <?php #displays the form for making a request if the user is logged in?>
-    
+
     <h1>Make a request</h1>
     <form method="post" id="sampleMakeRequest" action="makeRequest.php">
         <table>
@@ -80,7 +80,7 @@
 
 
     ?>
-
+  <?php include 'footer.php';?>
 
 </body>
 
