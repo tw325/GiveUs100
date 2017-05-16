@@ -9,8 +9,6 @@
 </head>
 <body>
     
-    <h1>CODE IMPLEMENTATION NOT FINISHED</h1>
-    
     <?php
     
     include 'navbar.php';
@@ -24,26 +22,28 @@
             
             $username = $_SESSION['logged_user'];
             
-            $user = $mysqli->query("SELECT * FROM users WHERE username=$username");
+            $user = $mysqli->query("SELECT * FROM users WHERE username='$username'");
             
-            if ($user && $user->num_rows == 1){
+            if ($user && $user->num_rows === 1){
                 
                 $id = $user->fetch_assoc()['userID'];
         
-                if (isset($_POST['timeStamp']) && isset($_POST['offerID']) && isset($_POST['description']) && trim($_POST['description'])!='' && trim($_POST['offerID'])!='' && trim($_POST['timeStamp'])!=''){
+                if (isset($_POST['offerID']) && isset($_POST['description']) && trim($_POST['description'])!='' && trim($_POST['offerID'])!=''){
                     $description=filter_var(trim($_POST['description']),FILTER_SANITIZE_STRING);
                     $offID = filter_var(trim($_POST['offerID']), FILTER_VALIDATE_INT);
-                    $timeStamp = filter_var(trim($_POST['timeStamp']),FILTER_SANITIZE_STRING);
                     
-                    $off = $mysqli->query("SELECT * FROM offer INNER JOIN users ON offer.userID=users.userID WHERE offer.offerID=$offID");
+                    $offs = $mysqli->query("SELECT * FROM offer INNER JOIN users ON offer.userID=users.userID WHERE offer.offerID='$offID'");
                     
-                    if ($off && $off->num_rows >= 1){
+                    if ($offs && $offs->num_rows === 1){
+                        
+                        $off=$offs->fetch_assoc();
                         
                         $offUser=$off['name'];
                         
                         $offTitle=$off['offerTitle'];
                     
-                        $sql = "INSERT INTO respondentrequests (userID, offerID, resRequestDescription, resRequestTimeStamp) VALUES ('$id','$offID','$description','$timeStamp')";
+                        $sql = "INSERT INTO respondentrequests (userID, offerID, resRequestDescription) VALUES ('$id','$offID','$description')";
+                        
                         if ($mysqli->query($sql) === TRUE) {
                             echo "Your response to $offTitle made by $offUser is submitted successfully";
                         } else {
@@ -92,7 +92,7 @@
           print("<tr>");
           print("<td>");
           print("<a href='$profileURL'><img class='offerPhoto' alt='userPhoto' src='$pictureURL'></a>");
-          print("<p>Name: $offerName</p>");
+          print("<p>$offerName</p>");
           print("</td>");
           print("<td>");
           print("<div>");
@@ -114,10 +114,9 @@
               print("<p>Respond to this offer:</p>");
               print("</td>");
               print("<td>");
-              print("<form method='post' class='respondentRequests' action='offers.php'>");
-              print("Description: <input type='text' name='descrption' required>");
+              print("<form method='post' class='respondentRequests' action='displayVolunteerOffers.php'>");
+              print("Description: <input type='text' name='description' required>");
               print("<input type='hidden' name='offerID' value='$offerID' required>");
-              print("<input id='volunteerResRequestDate'type='hidden' name='timeStamp' required>");
               print("<input type='submit' name='respondSubmit' value='Submit'>");
               print("</form>");
               print("</td>");
@@ -145,10 +144,12 @@
                   $requestProfileURL=$response['profileURL'];
                   $requestPictureURL=$response['pictureURL'];
           
-                  if ($response['preferredContact']=='phone'){
+                  if ($response['preferredContact']==='phone'){
                       $resContact=$response['phone'];
-                  } else if ($response['preferredContact']=='email'){
+                  } else if ($response['preferredContact']==='email'){
                       $resContact=$response['email'];
+                  } else {
+                      $resContact='Visit profile page';
                   }
           
                   $resRequestDescription=$response['resRequestDescription'];
@@ -159,7 +160,7 @@
                   print("<tr>");
                   print("<td>");
                   print("<a href='$requestProfileURL'><img class='requestPhoto' alt='userPhoto' src='$requestPictureURL'></a>");
-                  print("<p>Name: $requestName</p>");
+                  print("<p>$requestName</p>");
                   print("</td>");
                   print("<td>");
                   print("<div>");

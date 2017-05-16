@@ -20,27 +20,28 @@
         if ( isset( $_SESSION[ 'logged_user' ] ) ) {
             $username = $_SESSION['logged_user'];
             
-            $user = $mysqli->query("SELECT * FROM users WHERE username=$username");
+            $user = $mysqli->query("SELECT * FROM users WHERE username='$username'");
             
-            if ($user && $user->num_rows == 1){
+            if ($user && $user->num_rows === 1){
                 $id = $user->fetch_assoc()['userID'];
         
-                if (isset($_POST['timeStamp']) && isset($_POST['requestID']) && isset($_POST['description']) && trim($_POST['description'])!='' && trim($_POST['requestID'])!='' && trim($_POST['timeStamp'])!=''){
+                if (isset($_POST['requestID']) && isset($_POST['description']) && trim($_POST['description'])!='' && trim($_POST['requestID'])!=''){
                     $description=filter_var(trim($_POST['description']),FILTER_SANITIZE_STRING);
                     $reqID = filter_var(trim($_POST['requestID']), FILTER_VALIDATE_INT);
-                    $timeStamp = filter_var(trim($_POST['timeStamp']),FILTER_SANITIZE_STRING);
                     
-                    $req = $mysqli->query("SELECT * FROM request INNER JOIN users ON request.userID=users.userID WHERE request.requestID=$reqID");
+                    $reqs = $mysqli->query("SELECT * FROM request INNER JOIN users ON request.userID=users.userID WHERE request.requestID='$reqID'");
                     
-                    if ($req && $req->num_rows == 1){
+                     if ($reqs && $reqs->num_rows === 1){
                         
+                        $req=$reqs->fetch_assoc();
+                         
                         $reqUser=$req['name'];
                         
                         $reqTitle=$req['requestTitle'];
                     
-                        $sql = "INSERT INTO respondentoffers (userID, requestID, resOfferDescription, resOfferTimeStamp) VALUES ('$id','$reqID','$description','$timeStamp')";
+                        $sql = "INSERT INTO respondentoffers (userID, requestID, resOfferDescription) VALUES ('$id','$reqID','$description')";
                         if ($mysqli->query($sql) === TRUE) {
-                            echo "Your response to $reqTitle made by $reqUser is submitted successfully";
+                            echo "<div class='successNotice'><h2>Your response to $reqTitle made by $reqUser is submitted successfully</h2></div>";
                         } else {
                             echo "Error: " . $sql . "<br>" . $mysqli->error;
                         }
@@ -67,9 +68,9 @@
           $profileURL=$request['profileURL'];
           $pictureURL=$request['pictureURL'];
           
-          if ($request['preferredContact']=='phone'){
+          if ($request['preferredContact']==='phone'){
               $contact=$request['phone'];
-          } else if ($request['preferredContact']=='email'){
+          } else if ($request['preferredContact']==='email'){
               $contact=$request['email'];
           } else {
               $contact='Visit profile page';
@@ -87,7 +88,7 @@
           print("<tr>");
           print("<td>");
           print("<a href='$profileURL'><img class='requestPhoto' alt='userPhoto' src='$pictureURL'></a>");
-          print("<p>Name: $requestName</p>");
+          print("<p>$requestName</p>");
           print("</td>");
           print("<td>");
           print("<div>");
@@ -109,10 +110,9 @@
               print("<p>Respond to this request:</p>");
               print("</td>");
               print("<td>");
-              print("<form method='post' class='respondentOffers' action='requests.php'>");
-              print("Description: <input type='text' name='descrption' required>");
-              print("<input type='hidden' name='requestID' value='$requstID' required>");
-              print("<input id='donationResOfferDate'type='hidden' name='timeStamp' required>");
+              print("<form method='post' class='respondentOffers' action='displayDonationRequests.php'>");
+              print("Description: <input type='text' name='description' required>");
+              print("<input type='hidden' name='requestID' value='$requestID' required>");
               print("<input type='submit' name='respondSubmit' value='Submit'>");
               print("</form>");
               print("</td>");
@@ -140,10 +140,12 @@
                   $offerProfileURL=$response['profileURL'];
                   $offerPictureURL=$response['pictureURL'];
           
-                  if ($response['preferredContact']=='phone'){
+                  if ($response['preferredContact']==='phone'){
                       $resContact=$response['phone'];
-                  } else if ($response['preferredContact']=='email'){
+                  } else if ($response['preferredContact']==='email'){
                       $resContact=$response['email'];
+                  } else {
+                      $resContact='Visit profile page';
                   }
           
                   $resOfferDescription=$response['resOfferDescription'];
@@ -154,7 +156,7 @@
                   print("<tr>");
                   print("<td>");
                   print("<a href='$offerProfileURL'><img class='offerPhoto' alt='userPhoto' src='$offerPictureURL'></a>");
-                  print("<p>Name: $offerName</p>");
+                  print("<p>$offerName</p>");
                   print("</td>");
                   print("<td>");
                   print("<div>");
