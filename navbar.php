@@ -27,23 +27,25 @@
           $phone = $row['phone'];
           $preferredContact = $row['preferredContact'];
           echo "<li><a href=\"profile.php\"><img class=\"icon\" src=\"$pictureURL\"></a></li>"; ?>
-        
-          <form class="bookFormClass" action = "searchall.php" method="post" enctype="multipart/form-data">
+
+          <form class="bookForm" action = "searchall.php" method="post" enctype="multipart/form-data">
           <li><input type="text" name="search" placeholder="Search..."></li>
           <li><input type="submit" value="Search"></li>
           </form>
-        
+
         <?php
           echo '<li><a href="logout.php">log out</a></li>';
         }
       }
       else { ?>
-        
-          <form class="bookFormClass" action = "searchall.php" method="post" enctype="multipart/form-data">
-          <li><input type="text" name="search" placeholder="Search..."></li>
-          <li><input type="submit" value="Search"></li>
+
+          <form class="bookForm" action = "searchall.php" method="post" enctype="multipart/form-data">
+          <li>
+            <input type="text" name="search" placeholder="Search...">
+            <input type="submit" value="Search">
+          </li>
           </form>
-        
+
         <?php echo '<li><a href="login.php">log in</a></li>';
       }
     ?>
@@ -76,19 +78,19 @@
         }
           echo '>Profile</a></li>';
         ?>
-          
+
         <li><a onclick ="toggle('requestSub')" <?php echo ($page == 'requests') ? 'id="active"' : '';?> href="requests.php">Requests</a></li>
-          
+
         <li><a class="requestSub" <?php echo ($page == 'volunteer requests') ? 'id="active"' : '';?> href="displayVolunteerRequests.php">Volunteer Requests</a></li>
-          
+
         <li><a class="requestSub" <?php echo ($page == 'donation requests') ? 'id="active"' : '';?> href="displayDonationRequests.php">Donation Requests</a></li>
 
         <li ><a class="requestSub" <?php echo ($page == 'offers') ? 'id="active"' : '';?> href="offers.php">Offers</a></li>
-          
+
         <li><a class="offerSub" <?php echo ($page == 'volunteer offers') ? 'id="active"' : '';?> href="displayVolunteerOffers.php">Volunteer Offers</a></li>
-            
+
         <li><a class="offerSub" <?php echo ($page == 'donation offers') ? 'id="active"' : '';?> href="displayDonationOffers.php">Donation Offers</a></li>
-          
+
         <li><a <?php echo ($page == 'help') ? 'id="active"' : '';?> href="help.php">Help</a></li>
 
         <?php

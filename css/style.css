@@ -254,6 +254,12 @@ body{
 	float: right;
 }
 
+.bookForm{
+	float: left;
+	display: inline;
+  text-align: center;
+}
+
 #profile {
 	padding-top: 20px;
 	padding-right: 10px;
