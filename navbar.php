@@ -81,13 +81,9 @@
         echo '>Profile</a></li>';
         ?>
 
-        <li><a onclick ="toggle('requestSub')" <?php echo ($page == 'requests') ? 'id="active"' : '';?> href="requests.php">Requests</a></li>
-
         <li><a class="requestSub" <?php echo ($page == 'volunteer requests') ? 'id="active"' : '';?> href="displayVolunteerRequests.php">Volunteer Requests</a></li>
 
         <li><a class="requestSub" <?php echo ($page == 'donation requests') ? 'id="active"' : '';?> href="displayDonationRequests.php">Donation Requests</a></li>
-
-        <li ><a class="requestSub" <?php echo ($page == 'offers') ? 'id="active"' : '';?> href="offers.php">Offers</a></li>
 
         <li><a class="offerSub" <?php echo ($page == 'volunteer offers') ? 'id="active"' : '';?> href="displayVolunteerOffers.php">Volunteer Offers</a></li>
 

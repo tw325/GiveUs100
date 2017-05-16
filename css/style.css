@@ -321,17 +321,17 @@ input[type=submit]:active {
 	background-color: #2897B7;
 }
 
-input[type=text], input[type=password], input[type=url]{
+input[type=text], input[type=password], input[type=url], input[type=datetime]{
 	padding: 6px;
 	border: 3px solid gray;
 }
 
-input[type=number], input[type=password], input[type=url]{
+input[type=number], input[type=password], input[type=url], input[type=datetime]{
 	padding: 6px;
 	border: 3px solid gray;
 }
 
-input[type=text]:focus,input[type=password]:focus,input[type=url]:focus {
+input[type=text]:focus,input[type=password]:focus,input[type=url]:focus,input[type=datetime]:focus {
 	/*border: 3px solid black;
 	font-size: 16px;
 	transition: 0.3s;
