@@ -45,6 +45,12 @@ p {
 	width: 80%;
 }
 
+.photoBanner img {
+	width: 50%;
+	display: inline-block;
+	margin: 0 auto;
+}
+
 ul#header {
 	list-style-type: none;
 	margin: 0;
