@@ -30,34 +30,37 @@ if(!$result){
   exit();
 }
 while ( $row = $result->fetch_assoc() ){
-print ("Search found ".$row['search_count']. " results");
+print ("Search found ".$row['search_count']. " results in Offers")."<br />" ;
+
+
+if ($row['search_count'] > 0) {
+  $sql = "SELECT * FROM offer WHERE offerTitle LIKE '%$input%'OR offerDescription LIKE '%$$input%'OR offerTime LIKE '%$input%'OR offerLocation LIKE '%$input%' ORDER BY offer.offerTime ";
+
+  	$result = $mysqli -> query($sql);
+  	if(!$result){
+  		print('<p>error</p>');
+  		print($mysqli->error);
+  		exit();
+  	}
+
+  print('<table>');
+  print( '<thead><tr></th><th>Offer Title</th><th>Offer Description</th><th>Status</th><th>Time</th><th>Location</th><th>Type</th><th>Timestamp</th></tr></thead>' );
+  while ( $row = $result->fetch_assoc() ){
+  	print("<tr>");
+  	print " <td>{$row[ 'offerTitle' ]} </td>";
+  	print " <td>{$row[ 'offerDescription' ]} </td>";
+  	print " <td> {$row[ 'offerClosed' ]} </td>";
+  	print " <td> {$row[ 'offerTime' ]} </td>";
+    print " <td> {$row[ 'offerLocation' ]} </td>";
+  	print " <td> {$row[ 'offerType' ]} </td>";
+    print " <td> {$row[ 'offerTimeStamp' ]} </td>";
+
+  	print("</tr>");
   }
 
-$sql = "SELECT * FROM offer WHERE offerTitle LIKE '%$input%'OR offerDescription LIKE '%$$input%'OR offerTime LIKE '%$input%'OR offerLocation LIKE '%$input%' ORDER BY offer.offerTime ";
-
-	$result = $mysqli -> query($sql);
-	if(!$result){
-		print('<p>error</p>');
-		print($mysqli->error);
-		exit();
-	}
-
-print('<table>');
-print( '<thead><tr></th><th>Offer Title</th><th>Offer Description</th><th>Status</th><th>Time</th><th>Location</th><th>Type</th><th>Timestamp</th></tr></thead>' );
-while ( $row = $result->fetch_assoc() ){
-	print("<tr>");
-	print " <td>{$row[ 'offerTitle' ]} </td>";
-	print " <td>{$row[ 'offerDescription' ]} </td>";
-	print " <td> {$row[ 'offerClosed' ]} </td>";
-	print " <td> {$row[ 'offerTime' ]} </td>";
-  print " <td> {$row[ 'offerLocation' ]} </td>";
-	print " <td> {$row[ 'offerType' ]} </td>";
-  print " <td> {$row[ 'offerTimeStamp' ]} </td>";
-
-	print("</tr>");
+  print('</table>');
 }
-
-print('</table>');
+}
 }
 
 foreach ($arrayinput as $input) {
@@ -69,9 +72,9 @@ if(!$result){
   exit();
 }
 while ( $row = $result->fetch_assoc() ){
-print ("Search found ".$row['search_count']. " results");
-  }
+print ("Search found ".$row['search_count']. " results in Requests")."<br />";
 
+if ($row['search_count'] > 0) {
 $sql = "SELECT * FROM request WHERE requestTitle LIKE '%$input%'OR requestDescription LIKE '%$$input%'OR requestTime LIKE '%$input%'OR requestLocation LIKE '%$input%' ORDER BY request.requestTime ";
 
 	$result = $mysqli -> query($sql);
@@ -98,8 +101,10 @@ while ( $row = $result->fetch_assoc() ){
 
 print('</table>');
 }
+}
+}
 foreach ($arrayinput as $input) {
-$sql = "SELECT COUNT(users.userID) as search_count FROM users WHERE name LIKE '%$input%'OR userType LIKE '%$$input%'OR gender LIKE '%$input%'OR address LIKE '%$input%' OR language LIKE '%$input%' age LIKE '%$input%' ORDER BY users.userID ";
+$sql = "SELECT COUNT(users.userID) as search_count FROM users WHERE name LIKE '%$input%'OR userType LIKE '%$$input%'OR gender LIKE '%$input%'OR address LIKE '%$input%' OR language LIKE '%$input%' OR age LIKE '%$input%' ";
 $result = $mysqli -> query($sql);
 if(!$result){
   print('<p>error</p>');
@@ -107,10 +112,10 @@ if(!$result){
   exit();
 }
 while ( $row = $result->fetch_assoc() ){
-print ("Search found ".$row['search_count']. " results");
-  }
+print ("Search found ".$row['search_count']. " results in Users")."<br />";
 
-$sql = "SELECT * FROM users WHERE name LIKE '%$input%'OR userType LIKE '%$$input%'OR gender LIKE '%$input%'OR address LIKE '%$input%' OR language LIKE '%$input%' age LIKE '%$input%' ORDER BY users.userTYpe ";
+if ($row['search_count'] > 0) {
+$sql = "SELECT * FROM users WHERE name LIKE '%$input%'OR userType LIKE '%$$input%'OR gender LIKE '%$input%'OR address LIKE '%$input%' OR language LIKE '%$input%' OR age LIKE '%$input%' ORDER BY users.userType ";
 	$result = $mysqli -> query($sql);
 	if(!$result){
 		print('<p>error</p>');
@@ -130,11 +135,13 @@ while ( $row = $result->fetch_assoc() ){
 	print " <td> {$row[ 'age' ]} </td>";
   print " <td> {$row[ 'email' ]} </td>";
   print " <td> {$row[ 'phone' ]} </td>";
-  print " <td class = \"myid\"><img src="."../img/"."{$row['pictureURL']} alt='image'></td>";
+  print " <td class = \"myid\"><img src="."../images/"."{$row['pictureURL']} alt='image'></td>";
 	print("</tr>");
 }
 
 print('</table>');
+}
+}
 }
 
 include 'footer.php';?>
