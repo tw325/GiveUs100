@@ -9,18 +9,28 @@
 <body>
   <?php include 'navbar.php';?>
   <?php
-  if ( isset( $_SESSION[ 'logged_user' ] ) ) {
 
-    $username = $_SESSION[ 'logged_user' ];
+  if ( isset( $_SESSION[ 'logged_user' ] ) ) {
 
     #connect to the database
     require_once 'config.php';
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 
-    $result = $mysqli->query("SELECT * FROM users WHERE username='$username'");
+
+    if (isset($_GET['userID'])) {
+      $userID = $_GET[ 'userID' ];
+      $result = $mysqli->query("SELECT * FROM users WHERE userID='$userID'");
+    }
+    else {
+      $username = $_SESSION[ 'logged_user' ];
+      $result = $mysqli->query("SELECT * FROM users WHERE username='$username'");
+    }
+
+
+
 
     if ($result && $result->num_rows == 1) {
-      $row = $result->fetch_assoc();;
+      $row = $result->fetch_assoc();
 
       $name = $row['name'];
       $userType = $row['userType'];
@@ -49,11 +59,9 @@
           <tr>
             <td>
               <div class="pastPosts">
-                <ul>
-                  <li><a href="profile.php">Previous Posts</a></li>
-                  <li><a href="profile.php">Previous Requests</a></li>
-                  <li><a href="profile.php">Previous Offers</a></li>
-                </ul>
+                <ul>';
+                  
+      echo '</ul>
               </div>
             </td>
           </tr>
