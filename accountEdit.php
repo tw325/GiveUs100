@@ -23,13 +23,16 @@
               <tr><td>Email:</td> <td><input type="text" name="email" ></td>
               <tr><td>Phone number (xxxxxxxxxx):</td> <td><input type="text" name="phone" ></td>
               <tr><td>Gender:</td> <td><select name="gender">
+                <option value="nochange">No Change</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
                 <option value="other">Other</option></select></td>
               <tr><td>Preferred Contact:</td> <td><select name="pref">
+                <option value="nochange">No Change</option>
                 <option value="email">Email</option>
                 <option value="phone">Phone</option></select></td>
-              <tr><td>userType:</td> <td><select name="userType">
+              <tr><td>User Type:</td> <td><select name="userType">
+                <option value="nochange">No Change</option>
                 <option value="senior">Senior</option>
                 <option value="volunteer">Volunteer</option></select></td>
               <tr><td>Password: </td> <td><input type="password" name="password"></td>
@@ -60,10 +63,10 @@
           }
           $rel = $rel."name='$name', ";
         }
-        if (!empty($userType)) {
+        if (!empty($userType) || $userType="nochange") {
           $rel = $rel."userType='$userType', ";
         }
-        if (!empty($gender)) {
+        if (!empty($gender) || $gender="nochange") {
           $rel = $rel."gender='$gender', ";
         }
         if (!empty($address)) {
@@ -100,7 +103,7 @@
             $rel = $rel."phone='$phone', ";
           }
         }
-        if (!empty($pref)) {
+        if (!empty($pref) || $pref="nochange") {
           $pref = $_POST['pref'];
           $rel = $rel."preferredContact='$pref', ";
         }
@@ -135,6 +138,9 @@
           }
           if ($newFile['error'] == 0) {
             $tempName = $newFile['tmp_name'];
+            if (file_exists($pictureUrl)) {
+                unlink($pictureUrl);
+            }
             move_uploaded_file($tempName, $pictureUrl);
           }
 
