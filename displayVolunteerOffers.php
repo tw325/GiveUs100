@@ -116,8 +116,8 @@
               print("<td>");
               print("<form method='post' class='respondentRequests' action='offers.php'>");
               print("Description: <input type='text' name='descrption' required>");
-              print("<input class='hidden' type='text' name='offerID' value='$offerID' required>");
-              print("<input id='volunteerResRequestDate' class='hidden' type='text' name='timeStamp' required>");
+              print("<input type='hidden' name='offerID' value='$offerID' required>");
+              print("<input id='volunteerResRequestDate'type='hidden' name='timeStamp' required>");
               print("<input type='submit' name='respondSubmit' value='Submit'>");
               print("</form>");
               print("</td>");

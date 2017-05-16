@@ -31,7 +31,7 @@
 
   ?>
 
-  <h1>Requests</h1>
+  <h1>Sample Requests</h1>
   <table class="request">
     <tr class="request-post">
       <td>

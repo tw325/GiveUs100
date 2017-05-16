@@ -9,8 +9,6 @@
 </head>
 <body>
     
-    <h1>CODE IMPLEMENTATION BASICALLY FINISHED</h1>
-    
     <?php
 
     include 'navbar.php';
@@ -113,8 +111,8 @@
               print("<td>");
               print("<form method='post' class='respondentOffers' action='requests.php'>");
               print("Description: <input type='text' name='descrption' required>");
-              print("<input class='hidden' type='text' name='requestID' value='$requstID' required>");
-              print("<input id='donationResOfferDate' class='hidden' type='text' name='timeStamp' required>");
+              print("<input type='hidden' name='requestID' value='$requstID' required>");
+              print("<input id='donationResOfferDate'type='hidden' name='timeStamp' required>");
               print("<input type='submit' name='respondSubmit' value='Submit'>");
               print("</form>");
               print("</td>");

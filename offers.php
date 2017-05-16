@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SAMPLE REQUESTS</title>
+  <title>SAMPLE OFFERS</title>
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
@@ -32,7 +32,7 @@
 
     ?>
 
-    <h1>Offer</h1>
+    <h1>Sample Offer</h1>
     <table class="offer">
         <tr>
             <td>
